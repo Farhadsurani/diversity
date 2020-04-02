@@ -239,5 +239,6 @@ return [
         'Entrust'      => Zizaco\Entrust\EntrustFacade::class,
         'Image'        => Intervention\Image\Facades\Image::class,
 		'PushNotification' => Edujugon\PushNotification\Facades\PushNotification::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 ];

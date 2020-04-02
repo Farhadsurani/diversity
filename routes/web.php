@@ -60,3 +60,7 @@ Route::get('/event-details', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/redirectgoogle', 'GoogleLoginController@redirectToProvider')->name('redirectgoogle');
+Route::get('/callbackgoogle', 'GoogleLoginController@handleProviderCallback')->name('callbackgoogle');
+Route::get('/redirect', 'SocialAuthFacebookController@redirect')->name('redirect');
+Route::get('/callback', 'SocialAuthFacebookController@callback');

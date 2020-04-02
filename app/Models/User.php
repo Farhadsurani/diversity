@@ -196,6 +196,6 @@ class User extends Authenticatable implements JWTSubject
      */
     public function socialAccounts()
     {
-        return $this->hasMany(SocialAccount::class);
+        return $this->hasMany(SocialAccount::class,'user_id');
     }
 }
