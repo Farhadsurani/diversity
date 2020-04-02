@@ -4,19 +4,21 @@ namespace App\Http\Controllers\Web;
 
 use App\Helper\BreadcrumbsRegister;
 use App\DataTables\Admin\ContactUsDataTable;
-use App\Http\Requests\Admin;
+use App\Http\Controllers\Controller;
+
 use App\Http\Requests\Admin\CreateContactUsRequest;
 use App\Http\Requests\Admin\UpdateContactUsRequest;
 use App\Repositories\Admin\ContactUsRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Laracasts\Flash\Flash;
 
 /**
  * Class ContactUsController
  * @package App\Http\Controllers\Web
  */
-class Ho extends AppBaseController
+class ProfileController extends Controller
 {
     /** ModelName */
     private $ModelName;
@@ -27,11 +29,9 @@ class Ho extends AppBaseController
     /** @var  ContactUsRepository */
     private $contactUsRepository;
 
-    public function __construct(ContactUsRepository $contactUsRepo)
+    public function __construct()
     {
-        $this->contactUsRepository = $contactUsRepo;
-        $this->ModelName = 'contactus';
-        $this->BreadCrumbName = 'ContactUs';
+        $this->middleware('auth');
     }
 
     /**
@@ -40,10 +40,12 @@ class Ho extends AppBaseController
      * @param ContactUsDataTable $contactUsDataTable
      * @return Response
      */
-    public function index(ContactUsDataTable $contactUsDataTable)
+    public function index()
     {
-        BreadcrumbsRegister::Register($this->ModelName, $this->BreadCrumbName);
-        return $contactUsDataTable->render('admin.contactus.index');
+        $user = Auth::user();
+        return view('user.profile')->with([
+            'user' => $user]);
+
     }
 
     /**
@@ -75,7 +77,7 @@ class Ho extends AppBaseController
     /**
      * Display the specified ContactUs.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -94,7 +96,7 @@ class Ho extends AppBaseController
     /**
      * Show the form for editing the specified ContactUs.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -113,7 +115,7 @@ class Ho extends AppBaseController
     /**
      * Update the specified ContactUs in storage.
      *
-     * @param  int $id
+     * @param int $id
      * @param UpdateContactUsRequest $request
      *
      * @return Response
@@ -135,7 +137,7 @@ class Ho extends AppBaseController
     /**
      * Remove the specified ContactUs from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */

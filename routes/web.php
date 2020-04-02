@@ -34,22 +34,18 @@ Route::get('/courses', function () {
 });
 Route::get('/faq', function () {
     return view('faq');
-});
+})->name('faq');
 Route::get('/membership', function () {
     return view('membership');
 });
 Route::get('/portfolio', function () {
     return view('portfolio');
 });
-Route::get('/profile', function () {
-    return view('profile');
-});
+
 Route::get('/loginuser', function () {
     return view('loginuser');
-});
-Route::get('/registeruser', function () {
-    return view('registeruser');
-});
+})->name('loginuser');
+Route::get('/registeruser', 'HomeController@register')->name('registeruser');
 Route::get('/event', function () {
     return view('event');
 });
@@ -64,3 +60,4 @@ Route::get('/redirectgoogle', 'GoogleLoginController@redirectToProvider')->name(
 Route::get('/callbackgoogle', 'GoogleLoginController@handleProviderCallback')->name('callbackgoogle');
 Route::get('/redirect', 'SocialAuthFacebookController@redirect')->name('redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
+Route::get('/profile', 'Web\ProfileController@index')->name('profile');

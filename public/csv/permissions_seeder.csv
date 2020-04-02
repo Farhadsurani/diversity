@@ -52,3 +52,8 @@ settings.create,12,Settings,"Create Settings",1
 settings.show,12,Settings,"Show Settings",1
 settings.edit,12,Settings,"Edit Settings",1
 settings.destroy,12,Settings,"Destroy Settings",1
+subscriptions.index,13,Subscriptions,"Index Subscriptions",0
+subscriptions.create,13,Subscriptions,"Create Subscriptions",0
+subscriptions.show,13,Subscriptions,"Show Subscriptions",0
+subscriptions.edit,13,Subscriptions,"Edit Subscriptions",0
+subscriptions.destroy,13,Subscriptions,"Destroy Subscriptions",0

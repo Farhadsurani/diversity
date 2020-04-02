@@ -11,7 +11,7 @@
     <!-- Bootstrap WYSIHTML5 -->
     <link rel="stylesheet" href="{{ url('/public/css/admin/bootstrap3-wysihtml5.min.css') }}">
 
-
+    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -193,10 +193,13 @@
 <!-- Bootstrap WYSIHTML5 -->
 <script src="{{ url('/public/js/admin/bootstrap3-wysihtml5.all.min.js') }}"></script>
 
+<script>
+    CKEDITOR.replace( 'details' );
+</script>
+
 {{--    @yield('scripts')--}}
 @stack('scripts')
 <script src="{{ url('public/js/admin/custom.js') }}"></script>
-
 
 </body>
 </html>
