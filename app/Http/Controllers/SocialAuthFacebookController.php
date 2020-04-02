@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Repositories\Admin\UserRepository;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use App\Services\SocialFacebookAccountService;

@@ -1,10 +1,17 @@
 <?php
 namespace App\Services;
+use App\Models\Role;
 use App\Models\SocialAccount;
 use App\Models\User;
+use App\Repositories\Admin\UserRepository;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 class SocialFacebookAccountService
 {
+    private $userRepository;
+    public function __construct(UserRepository $userRepo)
+    {
+        $this->userRepository = $userRepo;
+    }
     public function createOrGetUser(ProviderUser $providerUser)
     {
         $account = SocialAccount::wherePlatform('facebook')
@@ -27,6 +34,7 @@ class SocialFacebookAccountService
             }
             $account->user()->associate($user);
             $account->save();
+            $this->userRepository->attachRole($user->id, Role::ROLE_USER);
             return $user;
         }
     }

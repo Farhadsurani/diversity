@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\SocialAccount;
 use App\Models\User;
 use App\Models\UserDetail;
+use App\Repositories\Admin\UserRepository;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 
 class GoogleLoginController extends Controller
 {
     //
+    private $userRepository;
+    public function __construct(UserRepository $userRepo)
+    {
+        $this->userRepository = $userRepo;
+    }
     public function redirectToProvider()
     {
         return Socialite::driver('google')->redirect();
@@ -49,6 +56,7 @@ class GoogleLoginController extends Controller
             $social['client_id'] = $user->id;
             $social['platform'] = 'google';
             SocialAccount::create($social);
+            $this->userRepository->attachRole($users->id, Role::ROLE_USER);
             auth()->login($users, true);
 
         }
