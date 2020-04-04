@@ -59,7 +59,7 @@
         xhr.send($.param(params));
     };
 
-    var _buildUrl = function(dt, action) {
+    var _buildUrl = function (dt, action) {
         var url = dt.ajax.url() || '';
         var params = dt.ajax.params();
         params.action = action;
@@ -67,7 +67,7 @@
         if (url.indexOf('?') > -1) {
             return url + '&' + $.param(params);
         }
-        
+
         return url + '?' + $.param(params);
     };
 
@@ -171,7 +171,7 @@
         className: 'buttons-print',
 
         text: function (dt) {
-            return  '<i class="fa fa-print"></i> ' + dt.i18n('buttons.print', 'Print');
+            return '<i class="fa fa-print"></i> ' + dt.i18n('buttons.print', 'Print');
         },
 
         action: function (e, dt, button, config) {
@@ -214,7 +214,9 @@
         },
 
         action: function (e, dt, button, config) {
-            window.location = window.location.href.replace(/\/+$/, "") + '/create';
+            var location = $(dt.containers()).parents(".datatable-action-urls").data('action-create');
+
+            window.location = (!!location) ? location : window.location.href.replace(/\/+$/, "") + '/create';
         }
     };
 

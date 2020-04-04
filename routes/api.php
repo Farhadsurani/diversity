@@ -85,3 +85,11 @@ Route::middleware('auth:api')->group(function () {
 });
 
 Route::resource('v1/subscriptions', 'SubscriptionAPIController');
+
+Route::resource('v1/courses', 'CourseAPIController');
+
+Route::resource('v1/chapters', 'ChapterAPIController');
+
+Route::resource('v1/chapter-ages', 'ChapterAgeAPIController');
+
+Route::resource('v1/chapter-pages', 'ChapterPageAPIController');

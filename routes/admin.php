@@ -48,3 +48,11 @@ Route::post('updateChannelPosition', 'MenuController@update_channel_position')->
 Route::resource('settings', 'SettingController');
 
 Route::resource('subscriptions', 'SubscriptionController');
+
+Route::resource('courses', 'CourseController');
+
+Route::resource('chapters', 'ChapterController');
+
+Route::resource('chapter-ages', 'ChapterAgeController');
+
+Route::resource('chapter-pages', 'ChapterPageController');

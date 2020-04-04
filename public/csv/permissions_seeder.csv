@@ -57,3 +57,23 @@ subscriptions.create,13,Subscriptions,"Create Subscriptions",0
 subscriptions.show,13,Subscriptions,"Show Subscriptions",0
 subscriptions.edit,13,Subscriptions,"Edit Subscriptions",0
 subscriptions.destroy,13,Subscriptions,"Destroy Subscriptions",0
+courses.index,14,Courses,"Index Courses",0
+courses.create,14,Courses,"Create Courses",0
+courses.show,14,Courses,"Show Courses",0
+courses.edit,14,Courses,"Edit Courses",0
+courses.destroy,14,Courses,"Destroy Courses",0
+chapters.index,15,Chapters,"Index Chapters",0
+chapters.create,15,Chapters,"Create Chapters",0
+chapters.show,15,Chapters,"Show Chapters",0
+chapters.edit,15,Chapters,"Edit Chapters",0
+chapters.destroy,15,Chapters,"Destroy Chapters",0
+chapter-ages.index,16,"Chapter Ages","Index Chapter Ages",0
+chapter-ages.create,16,"Chapter Ages","Create Chapter Ages",0
+chapter-ages.show,16,"Chapter Ages","Show Chapter Ages",0
+chapter-ages.edit,16,"Chapter Ages","Edit Chapter Ages",0
+chapter-ages.destroy,16,"Chapter Ages","Destroy Chapter Ages",0
+chapter-pages.index,17,"Chapter Pages","Index Chapter Pages",0
+chapter-pages.create,17,"Chapter Pages","Create Chapter Pages",0
+chapter-pages.show,17,"Chapter Pages","Show Chapter Pages",0
+chapter-pages.edit,17,"Chapter Pages","Edit Chapter Pages",0
+chapter-pages.destroy,17,"Chapter Pages","Destroy Chapter Pages",0
