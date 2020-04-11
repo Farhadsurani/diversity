@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\Admin\ChapterPageDataTable;
+use App\DataTables\Admin\PageDataTable;
 use App\Helper\BreadcrumbsRegister;
 use App\DataTables\Admin\ChapterDataTable;
 use App\Http\Requests\Admin;
@@ -90,17 +92,20 @@ class ChapterController extends AppBaseController
      *
      * @return Response
      */
-    public function show($id)
+    public function show($id, ChapterPageDataTable $pageDataTable)
     {
         $chapter = $this->chapterRepository->findWithoutFail($id);
-
+        $pageDataTable->chapter_id = $id;
         if (empty($chapter)) {
             Flash::error($this->BreadCrumbName . ' not found');
             return redirect(route('admin.chapters.index'));
         }
 
         BreadcrumbsRegister::Register($this->ModelName, $this->BreadCrumbName, $chapter);
-        return view('admin.chapters.show')->with(['chapter' => $chapter, 'title' => $this->BreadCrumbName]);
+        return $pageDataTable->render('admin.chapters.show', [
+            'chapter' => $chapter,
+            'title'   => $this->BreadCrumbName]);
+//        return view('admin.chapters.show')->with(['chapter' => $chapter, 'title' => $this->BreadCrumbName]);
     }
 
     /**

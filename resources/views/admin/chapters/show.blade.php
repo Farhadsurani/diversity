@@ -41,4 +41,19 @@
             </div>
         </div>
     </div>
+    <div class="content">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h2 class="box-title">Add Pages</h2>
+            </div>
+            <div class="box-body">
+                <div class="row datatable-action-urls"
+                     data-action-create="{{route('admin.chapter-pages.create',['chapter_id'=>$chapter->id])}}">
+                    <div class="col-sm-12">
+                        @include('admin.pages.table')
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\CreateChapterPageRequest;
 use App\Http\Requests\Admin\UpdateChapterPageRequest;
 use App\Repositories\Admin\ChapterPageRepository;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use Illuminate\Http\Response;
 
@@ -38,7 +39,7 @@ class ChapterPageController extends AppBaseController
      */
     public function index(ChapterPageDataTable $chapterPageDataTable)
     {
-        BreadcrumbsRegister::Register($this->ModelName,$this->BreadCrumbName);
+        BreadcrumbsRegister::Register($this->ModelName, $this->BreadCrumbName);
         return $chapterPageDataTable->render('admin.chapter_pages.index', ['title' => $this->BreadCrumbName]);
     }
 
@@ -47,10 +48,13 @@ class ChapterPageController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        BreadcrumbsRegister::Register($this->ModelName,$this->BreadCrumbName);
-        return view('admin.chapter_pages.create')->with(['title' => $this->BreadCrumbName]);
+        BreadcrumbsRegister::Register($this->ModelName, $this->BreadCrumbName);
+        return view('admin.chapter_pages.create')->with([
+            'title'      => $this->BreadCrumbName,
+            'chapter_id' => $request->get('chapter_id')
+        ]);
     }
 
     /**
@@ -80,7 +84,7 @@ class ChapterPageController extends AppBaseController
     /**
      * Display the specified ChapterPage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -93,14 +97,14 @@ class ChapterPageController extends AppBaseController
             return redirect(route('admin.chapter-pages.index'));
         }
 
-        BreadcrumbsRegister::Register($this->ModelName,$this->BreadCrumbName, $chapterPage);
+        BreadcrumbsRegister::Register($this->ModelName, $this->BreadCrumbName, $chapterPage);
         return view('admin.chapter_pages.show')->with(['chapterPage' => $chapterPage, 'title' => $this->BreadCrumbName]);
     }
 
     /**
      * Show the form for editing the specified ChapterPage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -113,14 +117,14 @@ class ChapterPageController extends AppBaseController
             return redirect(route('admin.chapter-pages.index'));
         }
 
-        BreadcrumbsRegister::Register($this->ModelName,$this->BreadCrumbName, $chapterPage);
+        BreadcrumbsRegister::Register($this->ModelName, $this->BreadCrumbName, $chapterPage);
         return view('admin.chapter_pages.edit')->with(['chapterPage' => $chapterPage, 'title' => $this->BreadCrumbName]);
     }
 
     /**
      * Update the specified ChapterPage in storage.
      *
-     * @param  int              $id
+     * @param int $id
      * @param UpdateChapterPageRequest $request
      *
      * @return Response
@@ -148,7 +152,7 @@ class ChapterPageController extends AppBaseController
     /**
      * Remove the specified ChapterPage from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */

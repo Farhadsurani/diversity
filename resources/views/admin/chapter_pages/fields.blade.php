@@ -1,8 +1,8 @@
 <!-- Chapter Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('chapter_id', 'Chapter Id:') !!}
-    {!! Form::text('chapter_id', null, ['class' => 'form-control', 'placeholder'=>'Enter chapter_id']) !!}
-</div>
+
+
+{!! Form::hidden('chapter_id', isset($chapter_id) ?$chapter_id :null, ['class' => 'form-control', 'placeholder'=>'Enter chapter_id']) !!}
+
 
 <!-- Number Field -->
 <div class="form-group col-sm-6">

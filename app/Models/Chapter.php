@@ -131,6 +131,16 @@ class Chapter extends Model
         'name' => 'required'
     ];
 
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
+    public function pages()
+    {
+        return $this->hasMany(ChapterPage::class, 'chapter_id');
+    }
+
     public function getImageUrlAttribute()
     {
         return ($this->image && storage_path(url('storage/app/' . $this->image))) ? route('api.resize', ['img' => $this->image]) : route('api.resize', ['img' => 'users/book.png', 'w=100', 'h=100']);

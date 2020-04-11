@@ -19,6 +19,8 @@ class ChapterPageDataTable extends DataTable
      * @param mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
+    public $chapter_id = null;
+
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
@@ -34,7 +36,12 @@ class ChapterPageDataTable extends DataTable
      */
     public function query(ChapterPage $model)
     {
-        return $model->newQuery();
+
+        $query = $model->newQuery();
+        if (!is_null($this->chapter_id)) {
+            $query->where('chapter_id', $this->chapter_id);
+        }
+        return $query;
     }
 
     /**
