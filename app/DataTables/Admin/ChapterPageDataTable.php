@@ -3,9 +3,11 @@
 namespace App\DataTables\Admin;
 
 use App\Helper\Util;
+use App\Models\Chapter;
 use App\Models\ChapterPage;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
+use function foo\func;
 
 /**
  * Class ChapterPageDataTable
@@ -24,6 +26,9 @@ class ChapterPageDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable->editColumn('chapter_id', function ($chapter) {
+            return $chapter->chapter->name;
+        });
 
         return $dataTable->addColumn('action', 'admin.chapter_pages.datatables_actions');
     }
@@ -80,9 +85,10 @@ class ChapterPageDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'chapter_id',
+            'chapter_id' => [
+                'title' => 'Chapter Name'
+            ],
             'number',
-            'text'
         ];
     }
 

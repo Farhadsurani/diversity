@@ -62,7 +62,7 @@ class ChapterPage extends Model
     use SoftDeletes;
 
     public $table = 'chapter_pages';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -70,7 +70,7 @@ class ChapterPage extends Model
     public $fillable = [
         'chapter_id',
         'number',
-        'text'
+        'details'
     ];
 
     /**
@@ -79,10 +79,10 @@ class ChapterPage extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+        'id'         => 'integer',
         'chapter_id' => 'integer',
-        'number' => 'string',
-        'text' => 'string'
+        'number'     => 'string',
+        'text'       => 'string'
     ];
 
     /**
@@ -90,7 +90,7 @@ class ChapterPage extends Model
      *
      * @var array
      */
-     protected $with = [];
+    protected $with = [];
 
     /**
      * The attributes that should be append to toArray.
@@ -113,8 +113,8 @@ class ChapterPage extends Model
      */
     public static $rules = [
         'chapter_id' => 'required',
-        'number' => 'required',
-        'text' => 'required'
+        'number'     => 'required',
+        'details'    => 'required'
     ];
 
     /**
@@ -124,8 +124,8 @@ class ChapterPage extends Model
      */
     public static $update_rules = [
         'chapter_id' => 'required',
-        'number' => 'required',
-        'text' => 'required'
+        'number'     => 'required',
+        'details'    => 'required'
     ];
 
     /**
@@ -135,20 +135,24 @@ class ChapterPage extends Model
      */
     public static $api_rules = [
         'chapter_id' => 'required',
-        'number' => 'required',
-        'text' => 'required'
+        'number'     => 'required',
+        'details'    => 'required'
     ];
-	
-	/**
+
+    /**
      * Validation api update rules
      *
      * @var array
      */
     public static $api_update_rules = [
         'chapter_id' => 'required',
-        'number' => 'required',
-        'text' => 'required'
+        'number'     => 'required',
+        'details'    => 'required'
     ];
 
-    
+    public function chapter()
+    {
+        return $this->belongsTo(Chapter::class);
+    }
+
 }

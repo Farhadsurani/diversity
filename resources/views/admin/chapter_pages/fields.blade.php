@@ -5,15 +5,15 @@
 
 
 <!-- Number Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('number', 'Number:') !!}
-    {!! Form::text('number', null, ['class' => 'form-control', 'placeholder'=>'Enter number']) !!}
+<div class="form-group col-sm-12">
+    {!! Form::label('number', 'Page Number:') !!}
+    {!! Form::text('number', null, ['class' => 'form-control', 'placeholder'=>'Enter Page number']) !!}
 </div>
-
+<div class="clearfix"></div>
 <!-- Text Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-12">
     {!! Form::label('text', 'Text:') !!}
-    {!! Form::text('text', null, ['class' => 'form-control', 'placeholder'=>'Enter text']) !!}
+    {!! Form::textarea('details', null, ['class' => 'form-control', 'placeholder'=>'Enter text']) !!}
 </div>
 
 <!-- Submit Field -->
