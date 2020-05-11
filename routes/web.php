@@ -11,47 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/index2', function () {
-    return view('index2');
-});
-Route::get('/index3', function () {
-    return view('index3');
-});
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('/contact', function () {
-    return view('contact');
-});
-Route::get('/blog', function () {
-    return view('blog');
-});
-Route::get('/courses', function () {
-    return view('courses');
-});
-Route::get('/faq', function () {
-    return view('faq');
-})->name('faq');
-Route::get('/membership', function () {
-    return view('membership');
-});
-Route::get('/portfolio', function () {
-    return view('portfolio');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/index2', 'Web\Index2Controller@index');
+Route::get('/index3', 'Web\Index3Controller@index');
+Route::get('/about', 'Web\AboutController@index');
+Route::get('/contact', 'Web\ContactController@index');
+Route::get('/blog', 'Web\BlogController@index');
+Route::get('/courses', 'Web\CourseController@index');
+Route::get('/faq', 'Web\FaqController@index');
+Route::get('/membership', 'Web\MembershipController@index');
+Route::get('/portfolio', 'Web\PortfolioController@index');
 
-Route::get('/loginuser', function () {
-    return view('loginuser');
-})->name('loginuser');
+Route::get('/loginuser', 'Web\LoginUserController@index')->name('loginuser');
 Route::get('/registeruser', 'HomeController@register')->name('registeruser');
-Route::get('/event', function () {
-    return view('event');
-});
-Route::get('/event-details', function () {
-    return view('event-details');
-});
+Route::get('/event', 'Web\EventController@index');
+Route::get('/event-details', 'Web\EventDetailsController@index');
 
 Auth::routes();
 

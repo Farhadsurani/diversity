@@ -93,3 +93,7 @@ Route::resource('v1/chapters', 'ChapterAPIController');
 Route::resource('v1/chapter-ages', 'ChapterAgeAPIController');
 
 Route::resource('v1/chapter-pages', 'ChapterPageAPIController');
+
+Route::resource('v1/events', 'EventAPIController');
+
+Route::resource('v1/news', 'NewsAPIController');

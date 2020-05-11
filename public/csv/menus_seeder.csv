@@ -15,3 +15,5 @@ Courses,14,"fa fa-book",courses,13,0,0,1
 Chapters,15,"fa fa-newspaper-o",chapters,14,0,0,1
 "Chapter Ages",16,"fa fa-file-o",chapter-ages,15,0,0,1
 "Chapter Pages",17,"fa fa-file",chapter-pages,15,0,0,1
+Events,18,"fa fa-clock-o",events,16,0,0,1
+News,19,"fa fa-newspaper-o",news,17,0,0,1

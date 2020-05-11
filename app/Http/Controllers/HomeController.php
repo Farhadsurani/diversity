@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
+use App\Repositories\Admin\CourseRepository;
+use App\Repositories\Admin\EventRepository;
+use App\Repositories\Admin\NewsRepository;
+
 /**
  * Class HomeController
  * @package App\Http\Controllers
@@ -13,9 +18,15 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    private $courseRepository;
+    private $eventRepository;
+    private $newsRepository;
+    public function __construct(CourseRepository $courseRepo, EventRepository $eventRepo, NewsRepository $newsRepo)
     {
         //$this->middleware('auth');
+        $this->courseRepository = $courseRepo;
+        $this->eventRepository = $eventRepo;
+        $this->newsRepository = $newsRepo;
     }
 
     /**
@@ -25,11 +36,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $course = $this->courseRepository->all();
+        $event = $this->eventRepository->all();
+        $news = $this->newsRepository->all();
+        return view('index')->with([
+            'course' => $course,
+            'event' => $event,
+            'news' => $news
+        ]);
     }
 
     public function register()
     {
-        return view('registeruser');
+        return view('web.registeruser');
     }
 }

@@ -77,3 +77,13 @@ chapter-pages.create,17,"Chapter Pages","Create Chapter Pages",0
 chapter-pages.show,17,"Chapter Pages","Show Chapter Pages",0
 chapter-pages.edit,17,"Chapter Pages","Edit Chapter Pages",0
 chapter-pages.destroy,17,"Chapter Pages","Destroy Chapter Pages",0
+events.index,18,Events,"Index Events",0
+events.create,18,Events,"Create Events",0
+events.show,18,Events,"Show Events",0
+events.edit,18,Events,"Edit Events",0
+events.destroy,18,Events,"Destroy Events",0
+news.index,19,News,"Index News",0
+news.create,19,News,"Create News",0
+news.show,19,News,"Show News",0
+news.edit,19,News,"Edit News",0
+news.destroy,19,News,"Destroy News",0

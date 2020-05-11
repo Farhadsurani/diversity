@@ -19,7 +19,13 @@ class SubscriptionDetail extends Model
     public $fillable = [
         'id',
         'details',
-        'subscription_id'
+        'subscription_id',
+        'price',
+        'duration',
+        'fee',
+        'featured',
+        'listing',
+        'availability'
     ];
 
     /**
@@ -29,7 +35,13 @@ class SubscriptionDetail extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'details' => 'string'
+        'details' => 'string',
+        'price' => 'integer',
+        'duration' => 'integer',
+        'fee' => 'integer',
+        'featured' => 'boolean',
+        'listing' => 'integer',
+        'availability' => 'integer'
     ];
 
     /**

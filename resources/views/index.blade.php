@@ -662,7 +662,8 @@
                             <div class="item">
                                 <div class="cours-bx">
                                     <div class="action-box">
-                                        <img src="{{'storage/'.$row->details->cover}}" alt="">
+                                        {{--storage_path(url('storage/app/' . $this->icon)--}}
+                                        <img src="{{$row->details->image_url}}" alt="">
                                         <a href="#" class="btn">Read More</a>
                                     </div>
                                     <div class="info-bx text-center">
@@ -690,7 +691,6 @@
                             @endforeach
                         </div>
                     </div>
-
                 </div>
             </div>
             <!-- Popular Courses END -->
@@ -755,10 +755,11 @@
                     </div>
                     <div class="row">
                         <div class="upcoming-event-carousel owl-carousel owl-btn-center-lr owl-btn-1 col-12 p-lr0  m-b30">
+                            @foreach($event as $events)
                             <div class="item">
                                 <div class="event-bx">
                                     <div class="action-box">
-                                        <img src="{{asset('public/images/event/pic4.jpg')}}" alt="">
+                                        <img src="{{$events->image_url}}" style="height: 300px" alt="">
                                     </div>
                                     <div class="info-bx d-flex">
                                         <div>
@@ -768,71 +769,18 @@
                                             </div>
                                         </div>
                                         <div class="event-info">
-                                            <h4 class="event-title"><a href="#">Education Autumn Tour 2019</a></h4>
+                                            <h4 class="event-title"><a href="#">{{$events->title}}</a></h4>
                                             <ul class="media-post">
                                                 <li><a href="#"><i class="fa fa-clock-o"></i> 7:00am 8:00am</a></li>
-                                                <li><a href="#"><i class="fa fa-map-marker"></i> Berlin, Germany</a>
+                                                <li><a href="#"><i class="fa fa-map-marker"></i>{{$events->city . ', ' . $events->country}}</a>
                                                 </li>
                                             </ul>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the..</p>
+                                            <p>{{$events->description}}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="event-bx">
-                                    <div class="action-box">
-                                        <img src="{{asset('public/images/event/pic3.jpg')}}"" alt="">
-                                    </div>
-                                    <div class="info-bx d-flex">
-                                        <div>
-                                            <div class="event-time">
-                                                <div class="event-date">29</div>
-                                                <div class="event-month">October</div>
-                                            </div>
-                                        </div>
-                                        <div class="event-info">
-                                            <h4 class="event-title"><a href="#">Education Autumn Tour 2019</a></h4>
-                                            <ul class="media-post">
-                                                <li><a href="#"><i class="fa fa-clock-o"></i> 7:00am 8:00am</a></li>
-                                                <li><a href="#"><i class="fa fa-map-marker"></i> Berlin, Germany</a>
-                                                </li>
-                                            </ul>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the..</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="event-bx">
-                                    <div class="action-box">
-                                        <img src="{{asset('public/images/event/pic2.jpg')}}"" alt="">
-                                    </div>
-                                    <div class="info-bx d-flex">
-                                        <div>
-                                            <div class="event-time">
-                                                <div class="event-date">29</div>
-                                                <div class="event-month">October</div>
-                                            </div>
-                                        </div>
-                                        <div class="event-info">
-                                            <h4 class="event-title"><a href="#">Education Autumn Tour 2019</a></h4>
-                                            <ul class="media-post">
-                                                <li><a href="#"><i class="fa fa-clock-o"></i> 7:00am 8:00am</a></li>
-                                                <li><a href="#"><i class="fa fa-map-marker"></i> Berlin, Germany</a>
-                                                </li>
-                                            </ul>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the..</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="text-center">
@@ -901,20 +849,19 @@
                         </div>
                     </div>
                     <div class="recent-news-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+                        @foreach($news as $detail)
                         <div class="item">
                             <div class="recent-news">
                                 <div class="action-box">
-                                    <img src="{{asset('public/images/blog/latest-blog/pic1.jpg')}}" alt="">
+                                    <img src="{{$detail->image_url}}" alt="">
                                 </div>
                                 <div class="info-bx">
                                     <ul class="media-post">
                                         <li><a href="#"><i class="fa fa-calendar"></i>Jan 02 2019</a></li>
-                                        <li><a href="#"><i class="fa fa-user"></i>By William</a></li>
+                                        <li><a href="#"><i class="fa fa-user"></i>By {{$detail->author}}</a></li>
                                     </ul>
-                                    <h5 class="post-title"><a href="blog-details.html">This Story Behind Education Will
-                                            Haunt You Forever.</a></h5>
-                                    <p>Knowing that, you’ve optimised your pages countless amount of times, written
-                                        tons.</p>
+                                    <h5 class="post-title"><a href="blog-details.html">{{$detail->title}}</a></h5>
+                                    <p>{{$detail->description}}</p>
                                     <div class="post-extra">
                                         <a href="#" class="btn-link">READ MORE</a>
                                         <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>20 Comment</a>
@@ -922,46 +869,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="recent-news">
-                                <div class="action-box">
-                                    <img src="{{asset('public/images/blog/latest-blog/pic2.jpg')}}" alt="">
-                                </div>
-                                <div class="info-bx">
-                                    <ul class="media-post">
-                                        <li><a href="#"><i class="fa fa-calendar"></i>Feb 05 2019</a></li>
-                                        <li><a href="#"><i class="fa fa-user"></i>By John</a></li>
-                                    </ul>
-                                    <h5 class="post-title"><a href="blog-details.html">What Will Education Be Like In
-                                            The Next 50 Years?</a></h5>
-                                    <p>As desperate as you are right now, you have done everything you can on your.</p>
-                                    <div class="post-extra">
-                                        <a href="#" class="btn-link">READ MORE</a>
-                                        <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>14 Comment</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="recent-news">
-                                <div class="action-box">
-                                    <img src="{{asset('public/images/blog/latest-blog/pic2.jpg')}}" alt="">
-                                </div>
-                                <div class="info-bx">
-                                    <ul class="media-post">
-                                        <li><a href="#"><i class="fa fa-calendar"></i>April 14 2019</a></li>
-                                        <li><a href="#"><i class="fa fa-user"></i>By George</a></li>
-                                    </ul>
-                                    <h5 class="post-title"><a href="blog-details.html">Master The Skills Of Education
-                                            And Be.</a></h5>
-                                    <p>You will see in the guide all my years of valuable experience together with.</p>
-                                    <div class="post-extra">
-                                        <a href="#" class="btn-link">READ MORE</a>
-                                        <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>23 Comment</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
                     </div>
                 </div>
             </div>

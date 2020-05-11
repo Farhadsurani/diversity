@@ -56,3 +56,7 @@ Route::resource('chapters', 'ChapterController');
 Route::resource('chapter-ages', 'ChapterAgeController');
 
 Route::resource('chapter-pages', 'ChapterPageController');
+
+Route::resource('events', 'EventController');
+
+Route::resource('news', 'NewsController');
