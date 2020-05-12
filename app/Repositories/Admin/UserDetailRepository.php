@@ -32,17 +32,17 @@ class UserDetailRepository extends BaseRepository
      */
     public function saveRecord($id, $request)
     {
-        $userDetailData            = $request->only(['name', 'password', 'phone', 'address', 'email_updates', 'image']);
-        $userDetails['user_id']    = $id;
+        $userDetailData = $request->only(['name', 'password', 'phone', 'address', 'email_updates', 'image']);
+        $userDetails['user_id'] = $id;
         $userDetails['first_name'] = ucwords($userDetailData['name']);
 //        $userDetails['last_name'] = ucwords($userDetailData['last_name']);
-        $userDetails['phone']         = isset($userDetailData['phone']) ? $userDetailData['phone'] : null;
-        $userDetails['address']       = isset($userDetailData['address']) ? $userDetailData['address'] : null;
+        $userDetails['phone'] = isset($userDetailData['phone']) ? $userDetailData['phone'] : null;
+        $userDetails['address'] = isset($userDetailData['address']) ? $userDetailData['address'] : null;
         $userDetails['email_updates'] = isset($userDetailData['email_updates']) ? $userDetailData['email_updates'] : 1;
-        $userDetails['image']         = null;
+        $userDetails['image'] = null;
 
         if ($request->hasFile('image')) {
-            $file                 = $request->file('image');
+            $file = $request->file('image');
             $userDetails['image'] = Storage::putFile('users', $file);
         }
 
@@ -57,15 +57,17 @@ class UserDetailRepository extends BaseRepository
      */
     public function updateRecord($id, $request)
     {
-        $updateData  = [];
+        $updateData = [];
         $userDetails = $this->findWhere(['user_id' => $id])->first();
         if ($userDetails) {
             $updateData = $request->all();
-            if ($request->hasFile('image')) {
-                $file                = $request->file('image');
-                $updateData['image'] = Storage::putFile('users', $file);
-            }
 
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+//                dd($file);
+                $updateData['image'] = Storage::putFile('profile', $file);
+            }
+//            dd($updateData);
             $userDetails = $userDetails->update($updateData);
         }
         /*if ($request->hasFile('image')) {

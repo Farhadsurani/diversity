@@ -42,7 +42,7 @@ class UserDetail extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'first_name', 'last_name', 'phone', 'address', 'image', 'email_updates', 'is_social_login'
+        'user_id', 'first_name', 'last_name', 'phone', 'address', 'image', 'email_updates', 'is_social_login', 'subscription_id'
     ];
 
     /**
@@ -94,5 +94,9 @@ class UserDetail extends Model
     public function getImageUrlAttribute()
     {
         return ($this->image && storage_path(url('storage/app/' . $this->image))) ? route('api.resize', ['img' => $this->image]) : route('api.resize', ['img' => 'users/user.png', 'w=100', 'h=100']);
+    }
+
+    public function subscription(){
+        return $this->belongsTo(Subscription::class, 'subscription_id');
     }
 }

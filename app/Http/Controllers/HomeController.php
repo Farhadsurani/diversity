@@ -6,6 +6,7 @@ use App\Models\News;
 use App\Repositories\Admin\CourseRepository;
 use App\Repositories\Admin\EventRepository;
 use App\Repositories\Admin\NewsRepository;
+use Illuminate\Http\Request;
 
 /**
  * Class HomeController
@@ -21,6 +22,7 @@ class HomeController extends Controller
     private $courseRepository;
     private $eventRepository;
     private $newsRepository;
+
     public function __construct(CourseRepository $courseRepo, EventRepository $eventRepo, NewsRepository $newsRepo)
     {
         //$this->middleware('auth');
@@ -41,13 +43,15 @@ class HomeController extends Controller
         $news = $this->newsRepository->all();
         return view('index')->with([
             'course' => $course,
-            'event' => $event,
-            'news' => $news
+            'event'  => $event,
+            'news'   => $news
         ]);
     }
 
-    public function register()
+    public function register(Request $request, $id)
     {
-        return view('web.registeruser');
+        return view('web.registeruser')->with([
+            'subscription_id' => $id
+        ]);
     }
 }

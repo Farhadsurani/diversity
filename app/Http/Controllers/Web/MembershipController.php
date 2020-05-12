@@ -26,7 +26,7 @@ class MembershipController extends Controller
 
     public function __construct(SubscriptionRepository $subscriptionRepo)
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
         $this->subscriptionRepository = $subscriptionRepo;
     }
 

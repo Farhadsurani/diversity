@@ -23,9 +23,26 @@ Route::get('/membership', 'Web\MembershipController@index');
 Route::get('/portfolio', 'Web\PortfolioController@index');
 
 Route::get('/loginuser', 'Web\LoginUserController@index')->name('loginuser');
-Route::get('/registeruser', 'HomeController@register')->name('registeruser');
+Route::get('/registeruser/{id}', 'HomeController@register')->name('registeruser');
 Route::get('/event', 'Web\EventController@index');
 Route::get('/event-details', 'Web\EventDetailsController@index');
+
+Route::get('/payment', 'Web\PaymentController@index');
+
+// route for processing payment
+Route::post('/paypal', 'Web\PaymentController@payWithpaypal');
+
+// route for check status of the payment
+Route::get('/status', 'Web\PaymentController@getPaymentStatus');
+
+Route::post('/edit-profile', 'Web\ProfileController@updateProfile')->name('edit-profile');
+
+//composer.bat
+//@echo OFF
+//:: in case DelayedExpansion is on and a path contains !
+//setlocal DISABLEDELAYEDEXPANSION
+//php "%~dp0composer.phar" %*
+
 
 Auth::routes();
 

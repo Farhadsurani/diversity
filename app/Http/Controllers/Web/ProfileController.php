@@ -8,10 +8,16 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Admin\CreateContactUsRequest;
 use App\Http\Requests\Admin\UpdateContactUsRequest;
+use App\Models\User;
 use App\Repositories\Admin\ContactUsRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\Admin\CourseRepository;
+use App\Repositories\Admin\UserDetailRepository;
+use App\Repositories\Admin\UserRepository;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Laracasts\Flash\Flash;
 
 /**
@@ -29,9 +35,21 @@ class ProfileController extends Controller
     /** @var  ContactUsRepository */
     private $contactUsRepository;
 
-    public function __construct()
+    /** @var  UserRepository */
+    private $userRepository;
+
+    /** @var  CourseRepository */
+    private $courseRepository;
+
+    /** @var  UserDetailRepository */
+    private $userDetailRepository;
+
+    public function __construct(UserRepository $userRepo, UserDetailRepository $userDetailRepo, CourseRepository $courseRepo)
     {
         $this->middleware('auth');
+        $this->userRepository = $userRepo;
+        $this->userDetailRepository = $userDetailRepo;
+        $this->courseRepository = $courseRepo;
     }
 
     /**
@@ -43,8 +61,14 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $price = $user->details->is_paid;
+        $course = $this->courseRepository->all();
+
         return view('user.profile')->with([
-            'user' => $user]);
+            'user'  => $user,
+            'price' => $price,
+            'course' => $course
+        ]);
 
     }
 
@@ -153,5 +177,25 @@ class ProfileController extends Controller
 
         Flash::success('Contact Us deleted successfully.');
         return redirect(route('admin.contactus.index'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $id = Auth::id();
+        $profile = $this->userRepository->findWithoutFail($id);
+        if (empty($profile)) {
+            Flash::error('User not found');
+            return redirect(route('profile'));
+        }
+
+        $this->userDetailRepository->updateRecord($id, $request);
+
+        $input = [];
+        $input['name'] = $request->name;
+        User::where('id', $id)->update($input);
+
+        Flash::success('Profile updated successfully.');
+
+        return redirect(route('profile'));
     }
 }
