@@ -58,6 +58,10 @@ class NewsRepository extends BaseRepository
     public function updateRecord($request, $news)
     {
         $input = $request->all();
+        if ($input['image'] != null) {
+            $file = $request->file('image');
+            $input['image'] = Storage::putFile('News', $file);
+        }
         $news = $this->update($input, $news->id);
         return $news;
     }

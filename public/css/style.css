@@ -2409,7 +2409,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5e14', end
 }
 .event-time{
 	color: #fff;
-    background-color: var(--primary);
+    background-color: #ffd74f;
     text-align: center;
     padding: 15px 10px;
     border-radius: 4px;
@@ -2625,9 +2625,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5e14', end
 .ovbl-dark:after{
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#391800+0,001739+38,321001+71,011e32+100 */
 background: #391800; /* Old browsers */
-background: -moz-linear-gradient(left, #391800 0%, #001739 38%, #321001 71%, #011e32 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left, #391800 0%,#001739 38%,#321001 71%,#011e32 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right, #391800 0%,#001739 38%,#321001 71%,#011e32 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+background: -moz-linear-gradient(left, #391800 0%, #ffd74f 38%, #321001 71%, #ffd74f 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #391800 0%,#ffd74f 38%,#321001 71%,#ffd74f 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #391800 0%,#ffd74f 38%,#321001 71%,#011e32 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#391800', endColorstr='#011e32',GradientType=1 ); /* IE6-9 */
 }
 .our-story{

@@ -14,18 +14,18 @@
 Route::get('/', 'HomeController@index');
 Route::get('/index2', 'Web\Index2Controller@index');
 Route::get('/index3', 'Web\Index3Controller@index');
-Route::get('/about', 'Web\AboutController@index');
-Route::get('/contact', 'Web\ContactController@index');
-Route::get('/blog', 'Web\BlogController@index');
-Route::get('/courses', 'Web\CourseController@index');
-Route::get('/faq', 'Web\FaqController@index');
-Route::get('/membership', 'Web\MembershipController@index');
-Route::get('/portfolio', 'Web\PortfolioController@index');
+Route::get('/about', 'Web\AboutController@index')->name('about');
+Route::get('/contact', 'Web\ContactController@index')->name('contact');
+Route::get('/blog', 'Web\BlogController@index')->name('blog');
+Route::get('/courses', 'Web\CourseController@index')->name('courses');
+Route::get('/faq', 'Web\FaqController@index')->name('faq');
+Route::get('/membership', 'Web\MembershipController@index')->name('membership');
+Route::get('/portfolio', 'Web\PortfolioController@index')->name('portfolio');
 
 Route::get('/loginuser', 'Web\LoginUserController@index')->name('loginuser');
 Route::get('/registeruser/{id}', 'HomeController@register')->name('registeruser');
-Route::get('/event', 'Web\EventController@index');
-Route::get('/event-details', 'Web\EventDetailsController@index');
+Route::get('/event', 'Web\EventController@index')->name('event');
+Route::get('/event-details', 'Web\EventDetailsController@index')->name('event-details');
 
 Route::get('/payment', 'Web\PaymentController@index');
 
@@ -36,6 +36,7 @@ Route::post('/paypal', 'Web\PaymentController@payWithpaypal');
 Route::get('/status', 'Web\PaymentController@getPaymentStatus');
 
 Route::post('/edit-profile', 'Web\ProfileController@updateProfile')->name('edit-profile');
+Route::post('/contact-us','Web\ContactController@store')->name('contact-us');
 
 //composer.bat
 //@echo OFF

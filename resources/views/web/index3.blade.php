@@ -45,7 +45,7 @@
 					<!-- Navigation Menu ==== -->
                     <div class="menu-links navbar-collapse collapse justify-content-end" id="menuDropdown">
 						<div class="menu-logo">
-							<a href="index-2.html"><img src="{{asset('public/images/logo.png')}}" alt=""></a>
+							<a href="index-2.html"><img src="{{asset('public/images/dap_logo.jpg')}}" alt="" style="height: 100px; width: 100px; opacity: 0.8;"></a>
 						</div>
                         <ul class="nav navbar-nav">	
 							<li class="active"><a href="javascript:;">Home <i class="fa fa-chevron-down"></i></a>
@@ -468,7 +468,7 @@
 							<div class="cours-bx style1">
 								<div class="action-box">
 									<img src="{{asset('public/images/courses/pic10.jpg')}}" alt="">
-									<a href="#" class="btn">Read More</a>
+									<a href="#" class="btn" style="background-color: #ffd74f">Read More</a>
 								</div>
 								<div class="info-bx text-center">
 									<h5><a href="#">Introduction EduChamp – LMS plugin</a></h5>
@@ -495,8 +495,8 @@
 						<div class="item">
 							<div class="cours-bx style1">
 								<div class="action-box">
-									<img src="{{asset('public/images/courses/pic11.jpg')}}"" alt="">
-									<a href="#" class="btn">Read More</a>
+									<img src="{{asset('public/images/courses/pic11.jpg')}}" alt="">
+									<a href="#" class="btn" style="background-color: #ffd74f">Read More</a>
 								</div>
 								<div class="info-bx text-center">
 									<h5><a href="#">Introduction EduChamp – LMS plugin</a></h5>
@@ -523,7 +523,7 @@
 						<div class="item">
 							<div class="cours-bx style1">
 								<div class="action-box">
-									<img src="{{asset('public/images/courses/pic12.jpg')}}"" alt="">
+									<img src="{{asset('public/images/courses/pic12.jpg')}}" alt="">
 									<a href="#" class="btn">Read More</a>
 								</div>
 								<div class="info-bx text-center">
@@ -583,7 +583,7 @@
 			<!-- Popular Courses END -->
 			
 			<!-- Form -->
-			<div class="section-area section-sp3 ovpr-dark bg-fix appointment-box" style="background-image:url({{asset('public/images/background/bg1.jpg')}}");">
+			<div class="section-area section-sp3 ovpr-dark bg-fix appointment-box" style="background-image:url({{asset('public/images/background/bg1.jpg')}}");>
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 heading-bx style1 text-white text-center">

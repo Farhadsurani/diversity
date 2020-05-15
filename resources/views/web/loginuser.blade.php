@@ -45,8 +45,7 @@
 	<!-- All PLUGINS CSS ============================================= -->
 	<link rel="stylesheet" type="text/css" href="{{asset('public/css/assets.css')}}">
 	
-	<!-- TYPOGRAPHY ============================================= -->
-	<link rel="stylesheet" type="text/css" href="{{asset('public/css/typography.css')}}">
+	<!-- TYPOGRAPHY ============================================= --><link rel="stylesheet" type="text/css" href="{{asset('public/css/typography.css')}}">
 	
 	<!-- SHORTCODES ============================================= -->
 	<link rel="stylesheet" type="text/css" href="{{asset('public/css/shortcodes/shortcodes.css')}}">
@@ -61,7 +60,7 @@
 <div class="page-wraper">
 	<div id="loading-icon-bx"></div>
 	<div class="account-form">
-		<div class="account-head" style="background-image:url({{asset('public/images/background/bg2.jpg')}})";">
+		<div class="account-head" style="background-image:url({{asset('public/images/background/bg2.jpg')}})";>
 			<a href="index-2.html"><img src="{{asset('public/images/logo-white-2.png')}}"" alt=""></a>
 		</div>
 		<div class="account-form-inner">

@@ -28,7 +28,7 @@ class EventDetailsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -39,9 +39,8 @@ class EventDetailsController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('web.event-details')->with([
-            'user' => $user]);
+//        $user = Auth::user();
+        return view('web.event-details');
 
     }
 

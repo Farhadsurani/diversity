@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="d-flex align-items-stretch">
                     <div class="pt-logo mr-auto">
-                        <a href="index-2.html"><img src="{{asset('public/images/logo-white.png')}}" alt=""/></a>
+                        <a href="index-2.html"><img src="{{asset('public/images/dap_logo.jpg')}}" alt="" style="height: 100px; width: 200px"/></a>
                     </div>
                     <div class="pt-social-link">
                         <ul class="list-inline m-a0">
@@ -99,7 +99,7 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 text-center"> © 2019 <span class="text-white">EduChamp</span>  All Rights Reserved.</div>
+                <div class="col-lg-12 col-md-12 col-sm-12 text-center"> © 2019 <span class="text-white">DAP - Diversity Awareness Program</span>  All Rights Reserved.</div>
             </div>
         </div>
     </div>

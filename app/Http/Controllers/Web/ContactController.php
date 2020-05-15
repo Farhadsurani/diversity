@@ -10,6 +10,9 @@ use App\Http\Requests\Admin\CreateContactUsRequest;
 use App\Http\Requests\Admin\UpdateContactUsRequest;
 use App\Repositories\Admin\ContactUsRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\Admin\PageRepository;
+use App\Repositories\Admin\QueriesRepository;
+use http\Env\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Laracasts\Flash\Flash;
@@ -26,9 +29,15 @@ class ContactController extends Controller
     /** BreadCrumbName */
     private $BreadCrumbName;
 
-    public function __construct()
+    private $pageRepository;
+
+    private $queriesRepository;
+
+    public function __construct(PageRepository $pageRepo, QueriesRepository $queriesRepo)
     {
 //        $this->middleware('auth');
+        $this->pageRepository = $pageRepo;
+        $this->queriesRepository = $queriesRepo;
     }
 
     /**
@@ -39,9 +48,10 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
+        $contact = $this->pageRepository->all();
+//        $user = Auth::user();
         return view('web.contact')->with([
-            'user' => $user]);
+            'contact' => $contact]);
 
     }
 
@@ -63,12 +73,16 @@ class ContactController extends Controller
      *
      * @return Response
      */
-    public function store(CreateContactUsRequest $request)
+    public function store(\Illuminate\Http\Request $request)
     {
-        $contactUs = $this->contactUsRepository->saveRecord($request);
+        if (empty($request)) {
+            Flash::error('Invalid data!');
+            return redirect(route('profile'));
+        }
+        $this->queriesRepository->saveRecord($request);
 
-        Flash::success('Contact Us saved successfully.');
-        return redirect(route('admin.contactus.index'));
+        Flash::success('Message sent successfully.');
+        return redirect(route('profile'));
     }
 
     /**

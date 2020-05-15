@@ -57,7 +57,7 @@
                             <div class="profile-tabnav">
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="tab" href="#"><i
+                                        <a class="nav-link active" data-toggle="tab" href="#courses"><i
                                                     class="ti-book"></i>Courses</a>
                                     </li>
                                     <li class="nav-item">
@@ -86,7 +86,7 @@
                                             <ul class="filters" data-toggle="buttons">
                                                 <li data-filter="" class="btn active">
                                                     <input type="radio">
-                                                    <a href="#"><span>All</span></a>
+                                                    <a href="#" style="background-color: #ffd74f; color: black"><span>All</span></a>
                                                 </li>
                                                 <li data-filter="publish" class="btn">
                                                     <input type="radio">
@@ -459,7 +459,7 @@
                                     <div class="profile-head">
                                         <h3>Edit Profile</h3>
                                     </div>
-                                    <form class="edit-profile" method="POST" action="{{ route('edit-profile') }}">
+                                    <form class="edit-profile" method="POST" enctype="multipart/form-data" action="{{ route('edit-profile') }}">
                                         @csrf
                                         <div class="">
                                             <div class="form-group row">

@@ -6,6 +6,7 @@ use App\Models\News;
 use App\Repositories\Admin\CourseRepository;
 use App\Repositories\Admin\EventRepository;
 use App\Repositories\Admin\NewsRepository;
+use App\Repositories\Admin\PageRepository;
 use Illuminate\Http\Request;
 
 /**
@@ -22,13 +23,15 @@ class HomeController extends Controller
     private $courseRepository;
     private $eventRepository;
     private $newsRepository;
+    private $pageRepository;
 
-    public function __construct(CourseRepository $courseRepo, EventRepository $eventRepo, NewsRepository $newsRepo)
+    public function __construct(CourseRepository $courseRepo, EventRepository $eventRepo, NewsRepository $newsRepo, PageRepository $pageRepo)
     {
         //$this->middleware('auth');
         $this->courseRepository = $courseRepo;
         $this->eventRepository = $eventRepo;
         $this->newsRepository = $newsRepo;
+        $this->pageRepository = $pageRepo;
     }
 
     /**
@@ -41,10 +44,12 @@ class HomeController extends Controller
         $course = $this->courseRepository->all();
         $event = $this->eventRepository->all();
         $news = $this->newsRepository->all();
+        $pages = $this->pageRepository->all();
         return view('index')->with([
             'course' => $course,
             'event'  => $event,
-            'news'   => $news
+            'news'   => $news,
+            'pages' => $pages
         ]);
     }
 

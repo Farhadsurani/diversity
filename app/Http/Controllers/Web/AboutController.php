@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\CreateContactUsRequest;
 use App\Http\Requests\Admin\UpdateContactUsRequest;
 use App\Repositories\Admin\ContactUsRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\Admin\PageRepository;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Laracasts\Flash\Flash;
@@ -26,9 +27,12 @@ class AboutController extends Controller
     /** BreadCrumbName */
     private $BreadCrumbName;
 
-    public function __construct()
+    private $pageRepository;
+
+    public function __construct(PageRepository $pageRepo)
     {
 //        $this->middleware('auth');
+        $this->pageRepository = $pageRepo;
     }
 
     /**
@@ -39,8 +43,11 @@ class AboutController extends Controller
      */
     public function index()
     {
+        $about = $this->pageRepository->all();
 //        $user = Auth::user();
-        return view('web.about');
+        return view('web.about')->with([
+            'about' => $about
+        ]);
 
     }
 

@@ -64,10 +64,8 @@ class UserDetailRepository extends BaseRepository
 
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
-//                dd($file);
-                $updateData['image'] = Storage::putFile('profile', $file);
+                $updateData['image'] = Storage::putFile('users', $file);
             }
-//            dd($updateData);
             $userDetails = $userDetails->update($updateData);
         }
         /*if ($request->hasFile('image')) {

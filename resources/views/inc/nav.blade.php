@@ -20,7 +20,7 @@
 								</select>
 							</li>
 							<li><a href="login.html">Login</a></li>
-							<li><a href="register.html">Register</a></li>
+							{{--<li><a href="register.html">Register</a></li>--}}
 						</ul>
 					</div>
 				</div>
@@ -31,7 +31,7 @@
                 <div class="container clearfix">
 					<!-- Header Logo ==== -->
 					<div class="menu-logo">
-						<a href="index-2.html"><img src="{{asset('public/images/logo-white.png')}}" alt=""></a>
+						<a href="index-2.html"><img src="{{asset('public/images/dap_logo.jpg')}}" alt="" style="height: 100px; width: 100px; opacity: 0.8;"></a>
 					</div>
 					<!-- Mobile Nav Button ==== -->
                     <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +62,7 @@
 					<!-- Navigation Menu ==== -->
                     <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
 						<div class="menu-logo">
-							<a href="index-2.html"><img src="{{asset('public/images/logo.png')}}" alt=""></a>
+							<a href="index-2.html"><img src="{{asset('public/images/dap_logo.jpg')}}" alt="" style="height: 100px; width: 100px; opacity: 0.8;"></a>
 						</div>
                         <ul class="nav navbar-nav">	
 							<li class="active"><a href="javascript:;">Home <i class="fa fa-chevron-down"></i></a>

@@ -60,6 +60,10 @@ class EventRepository extends BaseRepository
     public function updateRecord($request, $event)
     {
         $input = $request->all();
+        if ($input['image'] != null) {
+            $file = $request->file('image');
+            $input['image'] = Storage::putFile('Event', $file);
+        }
         $event = $this->update($input, $event->id);
         return $event;
     }

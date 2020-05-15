@@ -80,7 +80,7 @@
 								</select>
 							</li>
 							<li><a href="login.html">Login</a></li>
-							<li><a href="register.html">Register</a></li>
+							{{--<li><a href="register.html">Register</a></li>--}}
 						</ul>
 					</div>
 				</div>
@@ -91,7 +91,7 @@
                 <div class="container clearfix">
 					<!-- Header Logo ==== -->
 					<div class="menu-logo">
-						<a href="index-2.html"><img src="{{asset('public/images/logo.png')}}" alt=""></a>
+						<a href="index-2.html"><img src="{{asset('public/images/dap_logo.jpg')}}" alt="" style="height: 100px; width: 100px; opacity: 0.8;"></a>
 					</div>
 					<!-- Mobile Nav Button ==== -->
                     <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,9 +103,9 @@
                     <div class="secondary-menu">
                         <div class="secondary-inner">
                             <ul>
-								<li><a href="javascript:;" class="btn-link"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="javascript:;" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="javascript:;" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://www.facebook.com/DiversityAwarenessProgram/" class="btn-link"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/diversityaware" class="btn-link"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.youtube.com/user/DiversityAwareness1" class="btn-link"><i class="fa fa-youtube"></i></a></li>
 								<!-- Search Button ==== -->
 								<li class="search-btn"><button id="quik-search-btn" type="button" class="btn-link"><i class="fa fa-search"></i></button></li>
 							</ul>
@@ -122,58 +122,59 @@
 					<!-- Navigation Menu ==== -->
                     <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
 						<div class="menu-logo">
-							<a href="index-2.html"><img src="{{asset('public/images/logo.png')}}" alt=""></a>
+							<a href="index-2.html"><img src="{{asset('public/images/dap_logo.jpg')}}" alt="" style="height: 100px; width: 100px; opacity: 0.8;"></a>
 						</div>
-                        <ul class="nav navbar-nav">	
-							<li class="active"><a href="javascript:;">Home <i class="fa fa-chevron-down"></i></a>
-								<ul class="sub-menu">
-									<li><a href="index-2.html">Home 1</a></li>
-									<li><a href="index-3.html">Home 2</a></li>
-									<li><a href="index-4.html">Home 3</a></li>
-								</ul>
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="{{ route('home') }}">Home</a>
+								{{--<ul class="sub-menu">--}}
+								{{--<li><a href="index-2.html">Home 1</a></li>--}}
+								{{--<li><a href="index-3.html">Home 2</a></li>--}}
+								{{--<li><a href="index-4.html">Home 3</a></li>--}}
+								{{--</ul>--}}
 							</li>
 							<li><a href="javascript:;">Pages <i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
-									<li><a href="javascript:;">About<i class="fa fa-angle-right"></i></a>
+									<li><a href="{{ route('about') }}">About</a>
+										{{--<ul class="sub-menu">--}}
+										{{--<li><a href="about-1.html">About 1</a></li>--}}
+										{{--<li><a href="about-2.html">About 2</a></li>--}}
+										{{--</ul>--}}
+									</li>
+									<li><a href="#">Event<i class="fa fa-angle-right"></i></a>
 										<ul class="sub-menu">
-											<li><a href="about-1.html">About 1</a></li>
-											<li><a href="about-2.html">About 2</a></li>
+											<li><a href="{{ route('event') }}">Event</a></li>
+											<li><a href="{{ route('event-details') }}">Event Details</a></li>
 										</ul>
 									</li>
-									<li><a href="javascript:;">Event<i class="fa fa-angle-right"></i></a>
-										<ul class="sub-menu">
-											<li><a href="event.html">Event</a></li>
-											<li><a href="events-details.html">Events Details</a></li>
-										</ul>
+									<li><a href="{{ route('faq') }}">FAQ's</a>
+										{{--<ul class="sub-menu">--}}
+										{{--<li><a href="faq-1.html">FAQ's 1</a></li>--}}
+										{{--<li><a href="faq-2.html">FAQ's 2</a></li>--}}
+										{{--</ul>--}}
 									</li>
-									<li><a href="javascript:;">FAQ's<i class="fa fa-angle-right"></i></a>
-										<ul class="sub-menu">
-											<li><a href="faq-1.html">FAQ's 1</a></li>
-											<li><a href="faq-2.html">FAQ's 2</a></li>
-										</ul>
+									<li><a href="{{ route('contact') }}">Contact Us</a>
+										{{--<ul class="sub-menu">--}}
+										{{--<li><a href="contact-1.html">Contact Us 1</a></li>--}}
+										{{--<li><a href="contact-2.html">Contact Us 2</a></li>--}}
+										{{--</ul>--}}
 									</li>
-									<li><a href="javascript:;">Contact Us<i class="fa fa-angle-right"></i></a>
-										<ul class="sub-menu">
-											<li><a href="contact-1.html">Contact Us 1</a></li>
-											<li><a href="contact-2.html">Contact Us 2</a></li>
-										</ul>
-									</li>
-									<li><a href="portfolio.html">Portfolio</a></li>
-									<li><a href="profile.html">Profile</a></li>
-									<li><a href="membership.html">Membership</a></li>
+									<li><a href="{{ route('portfolio') }}">Portfolio</a></li>
+									<li><a href="{{ route('profile') }}">Profile</a></li>
+									<li><a href="{{ route('membership') }}">Membership</a></li>
 									<li><a href="error-404.html">404 Page</a></li>
 								</ul>
 							</li>
-							<li class="add-mega-menu"><a href="javascript:;">Our Courses <i class="fa fa-chevron-down"></i></a>
+							<li class="add-mega-menu"><a href="javascript:;">Our Courses <i
+											class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu add-menu">
 									<li class="add-menu-left">
 										<h5 class="menu-adv-title">Our Courses</h5>
 										<ul>
-											<li><a href="courses.html">Courses </a></li>
-											<li><a href="courses-details.html">Courses Details</a></li>
-											<li><a href="profile.html">Instructor Profile</a></li>
-											<li><a href="event.html">Upcoming Event</a></li>
-											<li><a href="membership.html">Membership</a></li>
+											<li><a href="{{ route('courses') }}">Courses </a></li>
+											{{--<li><a href="courses-details.html">Courses Details</a></li>--}}
+											{{--<li><a href="profile.html">Instructor Profile</a></li>--}}
+											<li><a href="{{ route('event') }}">Upcoming Event</a></li>
+											<li><a href="{{ route('membership') }}">Membership</a></li>
 										</ul>
 									</li>
 									<li class="add-menu-right">
@@ -181,44 +182,45 @@
 									</li>
 								</ul>
 							</li>
-							<li><a href="javascript:;">Blog <i class="fa fa-chevron-down"></i></a>
-								<ul class="sub-menu">
-									<li><a href="blog-classic-grid.html">Blog Classic</a></li>
-									<li><a href="blog-classic-sidebar.html">Blog Classic Sidebar</a></li>
-									<li><a href="blog-list-sidebar.html">Blog List Sidebar</a></li>
-									<li><a href="blog-standard-sidebar.html">Blog Standard Sidebar</a></li>
-									<li><a href="blog-details.html">Blog Details</a></li>
-								</ul>
+							<li><a href="{{ route('blog') }}">Blog</a>
+								{{--<ul class="sub-menu">--}}
+								{{--<li><a href="blog-classic-grid.html">Blog Classic</a></li>--}}
+								{{--<li><a href="blog-classic-sidebar.html">Blog Classic Sidebar</a></li>--}}
+								{{--<li><a href="blog-list-sidebar.html">Blog List Sidebar</a></li>--}}
+								{{--<li><a href="blog-standard-sidebar.html">Blog Standard Sidebar</a></li>--}}
+								{{--<li><a href="blog-details.html">Blog Details</a></li>--}}
+								{{--</ul>--}}
 							</li>
-							<li class="nav-dashboard"><a href="javascript:;">Dashboard <i class="fa fa-chevron-down"></i></a>
-								<ul class="sub-menu">
-									<li><a href="admin/index.html">Dashboard</a></li>
-									<li><a href="admin/add-listing.html">Add Listing</a></li>
-									<li><a href="admin/bookmark.html">Bookmark</a></li>
-									<li><a href="admin/courses.html">Courses</a></li>
-									<li><a href="admin/review.html">Review</a></li>
-									<li><a href="admin/teacher-profile.html">Teacher Profile</a></li>
-									<li><a href="admin/user-profile.html">User Profile</a></li>
-									<li><a href="javascript:;">Calendar<i class="fa fa-angle-right"></i></a>
-										<ul class="sub-menu">
-											<li><a href="admin/basic-calendar.html">Basic Calendar</a></li>
-											<li><a href="admin/list-view-calendar.html">List View Calendar</a></li>
-										</ul>
-									</li>
-									<li><a href="javascript:;">Mailbox<i class="fa fa-angle-right"></i></a>
-										<ul class="sub-menu">
-											<li><a href="admin/mailbox.html">Mailbox</a></li>
-											<li><a href="admin/mailbox-compose.html">Compose</a></li>
-											<li><a href="admin/mailbox-read.html">Mail Read</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
+							{{--<li class="nav-dashboard"><a href="javascript:;">Dashboard <i--}}
+							{{--class="fa fa-chevron-down"></i></a>--}}
+							{{--<ul class="sub-menu">--}}
+							{{--<li><a href="admin/index.html">Dashboard</a></li>--}}
+							{{--<li><a href="admin/add-listing.html">Add Listing</a></li>--}}
+							{{--<li><a href="admin/bookmark.html">Bookmark</a></li>--}}
+							{{--<li><a href="admin/courses.html">Courses</a></li>--}}
+							{{--<li><a href="admin/review.html">Review</a></li>--}}
+							{{--<li><a href="admin/teacher-profile.html">Teacher Profile</a></li>--}}
+							{{--<li><a href="admin/user-profile.html">User Profile</a></li>--}}
+							{{--<li><a href="javascript:;">Calendar<i class="fa fa-angle-right"></i></a>--}}
+							{{--<ul class="sub-menu">--}}
+							{{--<li><a href="admin/basic-calendar.html">Basic Calendar</a></li>--}}
+							{{--<li><a href="admin/list-view-calendar.html">List View Calendar</a></li>--}}
+							{{--</ul>--}}
+							{{--</li>--}}
+							{{--<li><a href="javascript:;">Mailbox<i class="fa fa-angle-right"></i></a>--}}
+							{{--<ul class="sub-menu">--}}
+							{{--<li><a href="admin/mailbox.html">Mailbox</a></li>--}}
+							{{--<li><a href="admin/mailbox-compose.html">Compose</a></li>--}}
+							{{--<li><a href="admin/mailbox-read.html">Mail Read</a></li>--}}
+							{{--</ul>--}}
+							{{--</li>--}}
+							{{--</ul>--}}
+							{{--</li>--}}
 						</ul>
 						<div class="nav-social-link">
-							<a href="javascript:;"><i class="fa fa-facebook"></i></a>
-							<a href="javascript:;"><i class="fa fa-google-plus"></i></a>
-							<a href="javascript:;"><i class="fa fa-linkedin"></i></a>
+							<li><a href="https://www.facebook.com/DiversityAwarenessProgram/" class="btn outline radius-xl"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/diversityaware" class="btn outline radius-xl"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://www.youtube.com/user/DiversityAwareness1" class="btn outline radius-xl"><i class="fa fa-youtube"></i></a></li>
 						</div>
                     </div>
 					<!-- Navigation Menu END ==== -->
@@ -233,7 +235,7 @@
         <div class="page-banner ovbl-dark" style="background-image:url({{asset('public/images/banner/banner2.jpg')}});">
             <div class="container">
                 <div class="page-banner-entry">
-                    <h1 class="text-white">About Us 1</h1>
+                    <h1 class="text-white">About Us</h1>
 				 </div>
             </div>
         </div>
@@ -241,7 +243,7 @@
 			<div class="container">
 				<ul class="list-inline">
 					<li><a href="#">Home</a></li>
-					<li>About Us 1</li>
+					<li>About Us</li>
 				</ul>
 			</div>
 		</div>
@@ -249,73 +251,75 @@
 		<!-- Page Content Box ==== -->
 		<div class="content-block">
             <!-- About Us ==== -->
-			<div class="section-area section-sp1">
-                <div class="container">
-					 <div class="row">
-						<div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-							<div class="feature-container">
-								<div class="feature-md text-white m-b20">
-									<a href="#" class="icon-cell"><img src="{{asset('public/images/icon/icon1.png')}}" alt=""/></a> 
-								</div>
-								<div class="icon-content">
-									<h5 class="ttr-tilte">Our Philosophy</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-							<div class="feature-container">
-								<div class="feature-md text-white m-b20">
-									<a href="#" class="icon-cell"><img src="{{asset('public/images/icon/icon2.png')}}" alt=""/></a> 
-								</div>
-								<div class="icon-content">
-									<h5 class="ttr-tilte">Kingster's Principle</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-							<div class="feature-container">
-								<div class="feature-md text-white m-b20">
-									<a href="#" class="icon-cell"><img src="{{asset('public/images/icon/icon3.png')}}" alt=""/></a> 
-								</div>
-								<div class="icon-content">
-									<h5 class="ttr-tilte">Key Of Success</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-							<div class="feature-container">
-								<div class="feature-md text-white m-b20">
-									<a href="#" class="icon-cell"><img src="{{asset('public/images/icon/icon4.png')}}" alt=""/></a> 
-								</div>
-								<div class="icon-content">
-									<h5 class="ttr-tilte">Our Philosophy</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div>
+			{{--<div class="section-area section-sp1">--}}
+                {{--<div class="container">--}}
+					 {{--<div class="row">--}}
+						{{--<div class="col-lg-3 col-md-6 col-sm-6 m-b30">--}}
+							{{--<div class="feature-container">--}}
+								{{--<div class="feature-md text-white m-b20">--}}
+									{{--<a href="#" class="icon-cell"><img src="{{asset('public/images/icon/icon1.png')}}" alt=""/></a> --}}
+								{{--</div>--}}
+								{{--<div class="icon-content">--}}
+									{{--<h5 class="ttr-tilte">Our Philosophy</h5>--}}
+									{{--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>--}}
+								{{--</div>--}}
+							{{--</div>--}}
+						{{--</div>--}}
+						{{--<div class="col-lg-3 col-md-6 col-sm-6 m-b30">--}}
+							{{--<div class="feature-container">--}}
+								{{--<div class="feature-md text-white m-b20">--}}
+									{{--<a href="#" class="icon-cell"><img src="{{asset('public/images/icon/icon2.png')}}" alt=""/></a> --}}
+								{{--</div>--}}
+								{{--<div class="icon-content">--}}
+									{{--<h5 class="ttr-tilte">Kingster's Principle</h5>--}}
+									{{--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>--}}
+								{{--</div>--}}
+							{{--</div>--}}
+						{{--</div>--}}
+						{{--<div class="col-lg-3 col-md-6 col-sm-6 m-b30">--}}
+							{{--<div class="feature-container">--}}
+								{{--<div class="feature-md text-white m-b20">--}}
+									{{--<a href="#" class="icon-cell"><img src="{{asset('public/images/icon/icon3.png')}}" alt=""/></a> --}}
+								{{--</div>--}}
+								{{--<div class="icon-content">--}}
+									{{--<h5 class="ttr-tilte">Key Of Success</h5>--}}
+									{{--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>--}}
+								{{--</div>--}}
+							{{--</div>--}}
+						{{--</div>--}}
+						{{--<div class="col-lg-3 col-md-6 col-sm-6 m-b30">--}}
+							{{--<div class="feature-container">--}}
+								{{--<div class="feature-md text-white m-b20">--}}
+									{{--<a href="#" class="icon-cell"><img src="{{asset('public/images/icon/icon4.png')}}" alt=""/></a> --}}
+								{{--</div>--}}
+								{{--<div class="icon-content">--}}
+									{{--<h5 class="ttr-tilte">Our Philosophy</h5>--}}
+									{{--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..</p>--}}
+								{{--</div>--}}
+							{{--</div>--}}
+						{{--</div>--}}
+					{{--</div>--}}
+				{{--</div>--}}
+            {{--</div>--}}
 			<!-- About Us END ==== -->
             <!-- Our Story ==== -->
 			<div class="section-area bg-gray section-sp1 our-story">
 				<div class="container">
 					<div class="row align-items-center d-flex">
-						<div class="col-lg-5 col-md-12 heading-bx">
+						<div class="col-lg-12 col-md-12 heading-bx">
 							<h2 class="m-b10">Our Story</h2>
-							<h5 class="fw4">It is a long established fact that a reade.</h5>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-							<a href="#" class="btn">Read More</a>
+							<h5 class="fw4"><b>{{$about[0]->title}}</b></h5>
+							<p>
+								{{$about[0]->content}}
+							</p>
+							{{--<a href="#" class="btn">Read More</a>--}}
 						</div>
-						<div class="col-lg-7 col-md-12 heading-bx p-lr">
-							<div class="video-bx">
-								<img src="{{asset('public/images/about/pic1.jpg')}}" alt=""/>
-								<a href="https://www.youtube.com/watch?v=x_sJzVe9P_8" class="popup-youtube video"><i class="fa fa-play"></i></a>
-							</div>
-						</div>
+						{{--<div class="col-lg-7 col-md-12 heading-bx p-lr">--}}
+							{{--<div class="video-bx">--}}
+								{{--<img src="{{asset('public/images/about/pic1.jpg')}}" alt=""/>--}}
+								{{--<a href="https://www.youtube.com/watch?v=x_sJzVe9P_8" class="popup-youtube video"><i class="fa fa-play"></i></a>--}}
+							{{--</div>--}}
+						{{--</div>--}}
 					</div>
 				</div>
 			</div>

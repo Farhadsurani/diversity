@@ -15,7 +15,7 @@
 			<div class="container">
 				<ul class="list-inline">
 					<li><a href="#">Home</a></li>
-					<li>Faqs 1</li>
+					<li>Faqs</li>
 				</ul>
 			</div>
 		</div>

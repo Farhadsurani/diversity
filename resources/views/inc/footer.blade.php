@@ -4,7 +4,7 @@
 				<div class="container">
 					<div class="d-flex align-items-stretch">
 						<div class="pt-logo mr-auto">
-							<a href="index-2.html"><img src="{{asset('public/images/logo-white.png')}}" alt=""/></a>
+							<a href="index-2.html"><img src="{{asset('public/images/dap_logo.jpg')}}" alt="" style="height: 100px; width: 200px"/></a>
 						</div>
 						<div class="pt-social-link">
 							<ul class="list-inline m-a0">
