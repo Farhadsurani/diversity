@@ -13,10 +13,25 @@
     {!! Form::label('image', 'Image:') !!}
     {!! Form::file('image', null, ['class' => 'form-control']) !!}
 </div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('video', 'Video:') !!}
+    {!! Form::file('video', null, ['class' => 'form-control']) !!}
+</div>
+
 <div class="clearfix"></div>
 @isset($chapter)
     <div class="form-group col-sm-3">
-        <img src="{{$chapter->image_url}}" width="100%"/>
+        <img src="{{$chapter->image_url}}" alt="" width="100%"/>
+    </div>
+@endisset
+
+<div class="clearfix"></div>
+@isset($chapter)
+    <div class="form-group col-sm-3">
+        <video width="320" height="240" controls>
+            <source src="{{url('storage/app/' . $video[0]->video)}}" type="video/mp4">
+        </video>
     </div>
 @endisset
 

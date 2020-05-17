@@ -19,8 +19,12 @@ Route::get('/contact', 'Web\ContactController@index')->name('contact');
 Route::get('/blog', 'Web\BlogController@index')->name('blog');
 Route::get('/courses', 'Web\CourseController@index')->name('courses');
 Route::get('/faq', 'Web\FaqController@index')->name('faq');
+Route::get('/service', 'Web\ServiceController@index')->name('service');
 Route::get('/membership', 'Web\MembershipController@index')->name('membership');
 Route::get('/portfolio', 'Web\PortfolioController@index')->name('portfolio');
+
+Route::get('/chapters-list/{id}', 'Web\CourseController@chaptersList')->name('chapters-list');
+Route::get('/watch-video/{id}', 'Web\CourseController@watchVideo')->name('watch-video');
 
 Route::get('/loginuser', 'Web\LoginUserController@index')->name('loginuser');
 Route::get('/registeruser/{id}', 'HomeController@register')->name('registeruser');

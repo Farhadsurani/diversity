@@ -107,9 +107,12 @@
                     <div class="secondary-menu">
                         <div class="secondary-inner">
                             <ul>
-                                <li><a href="javascript:;" class="btn-link"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="javascript:;" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="javascript:;" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
+                                {{--<li><a href="javascript:;" class="btn-link"><i class="fa fa-facebook"></i></a></li>--}}
+                                {{--<li><a href="javascript:;" class="btn-link"><i class="fa fa-google-plus"></i></a></li>--}}
+                                {{--<li><a href="javascript:;" class="btn-link"><i class="fa fa-linkedin"></i></a></li>--}}
+                                <li><a href="https://www.facebook.com/DiversityAwarenessProgram/" class="btn outline radius-xl"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/diversityaware" class="btn outline radius-xl"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.youtube.com/user/DiversityAwareness1" class="btn outline radius-xl"><i class="fa fa-youtube"></i></a></li>
                                 <!-- Search Button ==== -->
                                 <li class="search-btn"><button id="quik-search-btn" type="button" class="btn-link"><i class="fa fa-search"></i></button></li>
                             </ul>
@@ -194,6 +197,8 @@
                                 {{--<li><a href="blog-standard-sidebar.html">Blog Standard Sidebar</a></li>--}}
                                 {{--<li><a href="blog-details.html">Blog Details</a></li>--}}
                                 {{--</ul>--}}
+                            </li>
+                            <li><a href="{{ route('service') }}">Services</a>
                             </li>
                             {{--<li class="nav-dashboard"><a href="javascript:;">Dashboard <i--}}
                             {{--class="fa fa-chevron-down"></i></a>--}}

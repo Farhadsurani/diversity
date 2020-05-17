@@ -8,8 +8,12 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Admin\CreateContactUsRequest;
 use App\Http\Requests\Admin\UpdateContactUsRequest;
+use App\Repositories\Admin\ChapterRepository;
 use App\Repositories\Admin\ContactUsRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\Admin\CourseRepository;
+use App\Repositories\Admin\VideoRepository;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Laracasts\Flash\Flash;
@@ -26,9 +30,18 @@ class CourseController extends Controller
     /** BreadCrumbName */
     private $BreadCrumbName;
 
-    public function __construct()
+    private $courseRepository;
+
+    private $chapterRepository;
+
+    private $videoRepository;
+
+    public function __construct(CourseRepository $courseRepo, ChapterRepository $chapterRepo, VideoRepository $videoRepo)
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
+        $this->courseRepository = $courseRepo;
+        $this->chapterRepository = $chapterRepo;
+        $this->videoRepository = $videoRepo;
     }
 
     /**
@@ -39,9 +52,11 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
+//        $user = Auth::user();
+
+        $course = $this->courseRepository->all();
         return view('web.courses')->with([
-            'user' => $user]);
+            'course' => $course]);
 
     }
 
@@ -150,5 +165,33 @@ class CourseController extends Controller
 
         Flash::success('Contact Us deleted successfully.');
         return redirect(route('admin.contactus.index'));
+    }
+
+    public function chaptersList($id){
+
+        $chapters = $this->chapterRepository->findWhere(['course_id' => $id]);
+        if (empty($chapters)) {
+            Flash::error('Chapters not found');
+            return redirect(route('web.courses'));
+        }
+
+        return view('web.chapters')->with([
+            'chapters' => $chapters
+        ]);
+    }
+
+    public function watchVideo($id){
+
+//        dd($id);
+
+        $video = $this->videoRepository->findWhere(['chapter_id' => $id]);
+        if (empty($video)) {
+            Flash::error('Video not found');
+            return redirect(route('web.chapters'));
+        }
+
+        return redirect(route('chapters-list', ['id' => $id]))->with([
+            'video' => $video
+        ]);
     }
 }

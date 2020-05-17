@@ -9,10 +9,13 @@ use App\DataTables\Admin\ChapterDataTable;
 use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreateChapterRequest;
 use App\Http\Requests\Admin\UpdateChapterRequest;
+use App\Models\Video;
 use App\Repositories\Admin\ChapterRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\Admin\VideoRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use Laracasts\Flash\Flash;
 use Illuminate\Http\Response;
 
@@ -27,11 +30,14 @@ class ChapterController extends AppBaseController
     /** @var  ChapterRepository */
     private $chapterRepository;
 
-    public function __construct(ChapterRepository $chapterRepo)
+    private $videoRepository;
+
+    public function __construct(ChapterRepository $chapterRepo, VideoRepository $videoRepo)
     {
         $this->chapterRepository = $chapterRepo;
         $this->ModelName = 'chapters';
         $this->BreadCrumbName = 'Chapters';
+        $this->videoRepository = $videoRepo;
     }
 
     /**
@@ -54,6 +60,7 @@ class ChapterController extends AppBaseController
     public function create(Request $request)
     {
         BreadcrumbsRegister::Register($this->ModelName, $this->BreadCrumbName);
+
         return view('admin.chapters.create')->with([
             'title'     => $this->BreadCrumbName,
             'course_id' => $request->get('course_id'),
@@ -71,6 +78,14 @@ class ChapterController extends AppBaseController
     public function store(CreateChapterRequest $request)
     {
         $chapter = $this->chapterRepository->saveRecord($request);
+
+        $output = [];
+        $output['chapter_id'] = $chapter->id;
+        if ($request->hasFile('video')) {
+            $file = $request->file('video');
+            $output['video'] = Storage::putFile('Chapter/Video', $file);
+        }
+        Video::create($output);
 
         Flash::success($this->BreadCrumbName . ' saved successfully.');
         if (isset($request->continue)) {
@@ -119,13 +134,15 @@ class ChapterController extends AppBaseController
     {
         $chapter = $this->chapterRepository->findWithoutFail($id);
 
+        $video = $this->videoRepository->where('chapter_id', $id)->get();
+
         if (empty($chapter)) {
             Flash::error($this->BreadCrumbName . ' not found');
             return redirect(route('admin.chapters.index'));
         }
 
         BreadcrumbsRegister::Register($this->ModelName, $this->BreadCrumbName, $chapter);
-        return view('admin.chapters.edit')->with(['chapter' => $chapter, 'title' => $this->BreadCrumbName]);
+        return view('admin.chapters.edit')->with(['chapter' => $chapter, 'video' => $video, 'title' => $this->BreadCrumbName]);
     }
 
     /**
@@ -138,7 +155,6 @@ class ChapterController extends AppBaseController
      */
     public function update($id, UpdateChapterRequest $request)
     {
-
         $chapter = $this->chapterRepository->findWithoutFail($id);
 
         if (empty($chapter)) {
@@ -147,6 +163,12 @@ class ChapterController extends AppBaseController
         }
 
         $chapter = $this->chapterRepository->updateRecord($request, $chapter);
+
+        if ($request->hasFile('video')) {
+            $file = $request->file('video');
+            $output['video'] = Storage::putFile('Chapter/Video', $file);
+        }
+        Video::where('chapter_id', $id)->update($output);
 
         Flash::success($this->BreadCrumbName . ' updated successfully.');
 //        if (isset($request->continue)) {

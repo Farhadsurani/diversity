@@ -136,6 +136,11 @@ class Chapter extends Model
         return $this->belongsTo(Course::class);
     }
 
+    public function video()
+    {
+        return $this->hasOne(Video::class, 'chapter_id');
+    }
+
     public function pages()
     {
         return $this->hasMany(ChapterPage::class, 'chapter_id');
@@ -145,5 +150,4 @@ class Chapter extends Model
     {
         return ($this->image && storage_path(url('storage/app/' . $this->image))) ? route('api.resize', ['img' => $this->image]) : route('api.resize', ['img' => 'users/book.png', 'w=100', 'h=100']);
     }
-
 }

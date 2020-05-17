@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Chapter;
+use App\Models\Video;
 use Illuminate\Support\Facades\Storage;
 use InfyOm\Generator\Common\BaseRepository;
 
@@ -59,6 +60,7 @@ class ChapterRepository extends BaseRepository
             $file = $request->file('image');
             $input['image'] = Storage::putFile('Chapter', $file);
         }
+
         $chapter = $this->update($input, $chapter->id);
         return $chapter;
     }
