@@ -31,9 +31,11 @@ CREATE TABLE `admin_queries` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `admin_queries` */
+
+insert  into `admin_queries`(`id`,`name`,`email`,`subject`,`message`,`status`,`created_at`,`updated_at`,`deleted_at`) values (1,'Universities','superadmin@brainwash.com','test','test',1,'2020-05-15 18:09:35','2020-05-15 18:09:35',NULL);
 
 /*Table structure for table `chapter_pages` */
 
@@ -68,11 +70,11 @@ CREATE TABLE `chapters` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `chapters` */
 
-insert  into `chapters`(`id`,`course_id`,`name`,`image`,`details`,`created_at`,`updated_at`,`deleted_at`) values (1,1,'Testing','Chapter/jnfKZT2tQDTyQcwPzFcpNPT7KuEKI4yDXKe2ly86.jpeg','<p>Te</p>','2020-04-04 18:27:36','2020-04-04 18:40:48',NULL),(2,1,'Two',NULL,'<p>New</p>','2020-04-04 18:33:24','2020-04-04 18:46:05',NULL),(3,2,'First','Chapter/Gi5IZ1eK3l3yhv8V0gt9yyG9FpeQR1stMHLjBl0u.jpeg','<p>Testing redirect</p>','2020-04-04 18:34:07','2020-04-04 18:47:08',NULL),(4,2,'tw0',NULL,'<p>asd</p>','2020-04-04 18:48:23','2020-04-04 18:50:26',NULL);
+insert  into `chapters`(`id`,`course_id`,`name`,`image`,`details`,`created_at`,`updated_at`,`deleted_at`) values (1,1,'Testing','Chapter/jnfKZT2tQDTyQcwPzFcpNPT7KuEKI4yDXKe2ly86.jpeg','<p>Testing video upload</p>','2020-04-04 18:27:36','2020-05-17 19:03:29',NULL),(2,2,'Two',NULL,'<p>New</p>','2020-04-04 18:33:24','2020-04-04 18:46:05',NULL),(8,1,'Video',NULL,'<p>testing</p>','2020-05-17 19:24:43','2020-05-17 19:24:43',NULL);
 
 /*Table structure for table `course_details` */
 
@@ -108,7 +110,7 @@ CREATE TABLE `courses` (
 
 /*Data for the table `courses` */
 
-insert  into `courses`(`id`,`name`,`created_at`,`updated_at`,`deleted_at`) values (1,'Testing','2020-04-04 17:16:09','2020-04-04 17:16:09',NULL),(2,'Two','2020-04-04 17:31:34','2020-04-04 18:46:34',NULL),(3,'testing','2020-05-08 16:35:01','2020-05-08 16:35:01',NULL);
+insert  into `courses`(`id`,`name`,`created_at`,`updated_at`,`deleted_at`) values (1,'Testing','2020-04-04 17:16:09','2020-04-04 17:16:09',NULL),(2,'Two','2020-04-04 17:31:34','2020-04-04 18:46:34',NULL);
 
 /*Table structure for table `events` */
 
@@ -129,7 +131,7 @@ CREATE TABLE `events` (
 
 /*Data for the table `events` */
 
-insert  into `events`(`id`,`title`,`image`,`city`,`country`,`description`,`created_at`,`updated_at`,`deleted_at`) values (1,'First event','Event/ZtqgyuXOq2HWvnSX4oY4yBvNSz8zhJxI4UIxwiA9.jpeg','test','test','description','2020-05-10 17:48:23','2020-05-10 17:48:23',NULL),(2,'Second event','Event/V1jqcMGrBxQ27KL7T2b9EXkFClxvuxGhv3TiB3TS.jpeg','test2','test2','description2','2020-05-10 18:03:39','2020-05-10 18:03:39',NULL);
+insert  into `events`(`id`,`title`,`image`,`city`,`country`,`description`,`created_at`,`updated_at`,`deleted_at`) values (1,'First event','Event/FkKRcLoFmvTpZ98x0YUFjiCMKGqKWLOjlC2Reix2.jpeg','test','test','description','2020-05-10 17:48:23','2020-05-14 15:50:46',NULL),(2,'Second event','Event/m9sBYpEWaasRvfMKmJGaAW8zA4hIXZl2SYHvUsJ3.jpeg','test2','test2','description2','2020-05-10 18:03:39','2020-05-14 15:51:05',NULL);
 
 /*Table structure for table `locales` */
 
@@ -235,7 +237,7 @@ CREATE TABLE `news` (
 
 /*Data for the table `news` */
 
-insert  into `news`(`id`,`author`,`title`,`description`,`image`,`created_at`,`updated_at`,`deleted_at`) values (1,'Jesse James','University Convention','The best ever!','News/5Yu6Zki3NpHPAxKXeUR1ZJlIamRxrKceDIIOkLFI.jpeg','2020-05-10 18:23:38','2020-05-10 18:23:38',NULL),(2,'Maria Carey','First event','Quality assurance','News/EZiUpOqTFI9p790drnR4oep82aZN0QS48VWeTTGs.jpeg','2020-05-11 09:44:06','2020-05-11 09:44:06',NULL);
+insert  into `news`(`id`,`author`,`title`,`description`,`image`,`created_at`,`updated_at`,`deleted_at`) values (1,'Jesse James','University Convention','The best ever!','News/KHLebFRiUMEtDbOPpmMguqFMqcMmN5H7oa2eO3jc.jpeg','2020-05-10 18:23:38','2020-05-14 15:51:23',NULL),(2,'Maria Carey','First event','Quality assurance','News/7FmQosepU8Ct1NIMYoqkoCWCM0eEEOu4xXlwuh0K.jpeg','2020-05-11 09:44:06','2020-05-14 15:51:23',NULL);
 
 /*Table structure for table `notification_users` */
 
@@ -297,9 +299,11 @@ CREATE TABLE `page_translations` (
   PRIMARY KEY (`id`),
   KEY `page_translations_page_id_foreign` (`page_id`),
   CONSTRAINT `page_translations_page_id_foreign` FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `page_translations` */
+
+insert  into `page_translations`(`id`,`page_id`,`locale`,`title`,`content`,`status`,`created_at`,`updated_at`,`deleted_at`) values (1,1,'en','\"It\'s your world, change it or someone else will.\" ~Gary Lew','The purpose of D.A.P. is to promote diversity and cultural awareness in all aspects of life to the students, faculty, and staff on the University campus through active engagements of active discussions on social issues and ideas. D.A.P. will serve as a resourceful bound in encouraging students and members to seek opportunities to become more culturally aware and conscious. \r\n\r\nThe organization has educated students by inviting a diverse group of people together and participating in activities that not only help them to know each other in small groups but also having discussion topics as a large group.\r\n\r\nOverall the groups hope to help the campuses and workplaces realize just because you have this judgment about a particular group of people does not mean it applies to the whole group, hence stereotypes. \r\n\r\nNevertheless, this organization has grown and progressed into a known and well-loved organization. As an organization with 1200 participants\r\nand over 650 members., they have promoted diversity and created friendships amongst each other that go beyond the timed training and meetings. \r\n\r\nThe organization is led by Justin Brown, creator. This organization is one where you can come for support, and come to be better educated and aware of diversity throughout your university campus, workplace and your future.\r\n\r\nIn only its third year of existence, the energy and commitment of the collective whole of its membership is amazingly strong.  It has approximately 650 members meeting voluntarily coming together to discuss, play, and challenge each other on social issues, ideas, personal relationships, stereotypes, cultural identities, and so much more.\r\n\r\nThe workshop presentation will showcase the driving force of D.A.P.  –and will highlight activities, ideas, and personal reflection of how and why D.A.P. became so hugely popular and so important on so many levels on our campus community.\r\n\r\nFurther discussion and handouts will reveal demonstrated successes and intentionally, planned strategies of developing student and cultural identity competencies. D.A.P’. members are trained as trainers to provide diversity and prejudice-reduction workshops. The integration of the D.A.P. Educator Outreach members with the first-year seminar program (reaching over 93% of first-year student population) and can be integrated into other student life/campus programs and by-faculty invitation into other academic discipline classrooms.',1,'2020-05-15 15:14:02','2020-05-15 15:26:19',NULL),(2,2,'en','We\'d love to hear from you!','If you\'d like to contact us about any of our work, diversity programs or diversity training, please send us an email. We\'d love to hear from you.',1,'2020-05-15 15:47:00','2020-05-15 15:47:00',NULL),(3,3,'en','Welcome to our site.','D.A.P. was designed to bring a\r\nvariety of different races, people and\r\nbackgrounds together. We offer\r\nsincere diversity training as well as\r\ndevelopment programs that stimulate the mind as well as the soul.\r\nWith only being in its 11th year, D.A.P. has reached over 100K participants\r\nwith over 20K members.\r\nOur goal is to work with people to create adiverse community not only on your University Campus or Workplace, but also in our individual communities.\r\nWe strive for excellence in respect, understanding and friendship. We hope that you join us and become a part of our family as\r\nwell.\r\n\r\nJustin L. Brown\r\nD.A.P. Creator & President',1,'2020-05-15 18:23:46','2020-05-15 18:23:46',NULL),(4,4,'en','Program Implementation','<!DOCTYPE html>\r\n<head></head>\r\n<body>\r\nThe focus of this 3hr 30min workshop is to objectively \r\nimplement the D.A.P. program. This \r\nprocess will begin a chapter of the D.A.P. \r\nprogram at your university or place of work. \r\nDuring the session, the D.A.P. \r\nfacilitator will coach participants through the \r\nprogram implementation and will \r\nclarify and express what it means to have \r\ndiversity and cultural awareness on \r\na collegiate level. The assessment and session will \r\ncover your universities intiatives or\r\norganization\'s current state as it relates to: <br />\r\n•D.A.P. Manual Distribution  <br />\r\n•Issues dealing with LGBT issues and services <br />\r\n•Programs on Men and Women relationships  <br />\r\n•Role Play Diversity Situations <br />\r\n•Workshops on sexism <br />\r\n•Multicultural Ice Breakers\r\n•Personal Culturally Based Games\r\n•Unity Initiative Scenarios and Activities\r\n•Readiness for inclusiveness \r\n•Workshop Templates\r\n•Leadership Accountability\r\n</body>\r\n</html>',1,'2020-05-17 17:57:47','2020-05-17 18:34:39',NULL),(5,5,'en','Our Services','D.A.P. was designed to bring a\r\nvariety of different races, people and\r\nbackgrounds together. We offer\r\nsincere diversity training as well as\r\ndevelopment programs that stimulate the mind as well as the soul.\r\nWith only being in its third year, D.A.P. has reached over 1200 participants\r\nwith over 650 members.\r\nOur goal is to work with people to create adiverse community not only on your University Campus or Workplace, but also in our individual communities.\r\nWe strive for excellence in respect, understanding and friendship. We hope that you join us and become a part of our family as\r\nwell.\r\nJustin L. Brown\r\nD.A.P. Creator & President',1,'2020-05-17 17:58:38','2020-05-17 17:58:38',NULL),(6,6,'en','Diversity Training','During this 90 minute workshop a D.A.P. \r\nfacilitator will coach participants on the value and \r\nmeaning of what it means to be culturally aware and \r\ndiverse in an organization or university campus.\r\nDuring the session participants will engage in fun \r\ndiversity activities, role playing, and cultural unity\r\nscenarios. \r\nNote:This is a simple training session and does not\r\nimplement the D.A.P. program as a chapter at its\r\nrespective place of training.\r\n•Accountability for Change\r\n•Resourceful Bound Initiatives\r\n•Session on Ageism\r\n•Cultural Progression\r\n•Ice Breakers on Social Issues\r\n•Role Play Cultural Situations\r\n•Training on Diversity Inclusion \r\n•Fun with Learning and Games\r\n•Certification in Diversity \r\n•Sexual Orientation and Inclusion',1,'2020-05-17 17:59:13','2020-05-17 17:59:13',NULL);
 
 /*Table structure for table `pages` */
 
@@ -313,9 +317,11 @@ CREATE TABLE `pages` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `pages` */
+
+insert  into `pages`(`id`,`slug`,`status`,`created_at`,`updated_at`,`deleted_at`) values (1,'About',1,'2020-05-15 15:12:55','2020-05-15 15:12:55',NULL),(2,'Contact',1,'2020-05-15 15:42:33','2020-05-15 15:47:00',NULL),(3,'Welcome',1,'2020-05-15 18:22:54','2020-05-15 18:22:54',NULL),(4,'Services-1',1,'2020-05-17 17:57:04','2020-05-17 17:57:04',NULL),(5,'Services-main',1,'2020-05-17 17:57:59','2020-05-17 17:57:59',NULL),(6,'Services-2',1,'2020-05-17 17:58:53','2020-05-17 17:58:53',NULL);
 
 /*Table structure for table `password_resets` */
 
@@ -547,7 +553,7 @@ CREATE TABLE `user_details` (
 
 /*Data for the table `user_details` */
 
-insert  into `user_details`(`id`,`user_id`,`first_name`,`last_name`,`phone`,`address`,`image`,`is_verified`,`is_paid`,`email_updates`,`subscription_id`,`is_social_login`,`created_at`,`updated_at`,`deleted_at`) values (1,1,'Super','Admin',NULL,NULL,NULL,1,0,1,NULL,0,'2020-04-02 14:46:01','2020-04-02 14:46:01',NULL),(2,2,'Admin','User',NULL,NULL,NULL,1,0,1,NULL,0,'2020-04-02 14:46:01','2020-04-02 14:46:01',NULL),(4,6,NULL,NULL,NULL,NULL,'https://lh3.googleusercontent.com/a-/AOh14Gg6EkjBNRaaDqpAju5whI2jNoiSgtDmKnue4n85',1,0,0,NULL,0,'2020-04-02 21:52:58','2020-04-02 21:52:58',NULL),(5,7,NULL,NULL,NULL,NULL,'https://lh3.googleusercontent.com/a-/AOh14GhVZsAI6Dy8MsH6JwfSVQP2WsqZaHTODk3OfGgVtA',1,0,0,NULL,0,'2020-04-02 23:42:18','2020-04-02 23:42:18',NULL),(6,10,NULL,NULL,NULL,NULL,NULL,1,0,0,2,0,'2020-05-12 20:13:20','2020-05-12 20:13:20',NULL),(7,11,NULL,NULL,NULL,NULL,'profile.jpg',1,1,0,2,0,'2020-05-12 20:15:21','2020-05-12 22:00:49',NULL);
+insert  into `user_details`(`id`,`user_id`,`first_name`,`last_name`,`phone`,`address`,`image`,`is_verified`,`is_paid`,`email_updates`,`subscription_id`,`is_social_login`,`created_at`,`updated_at`,`deleted_at`) values (1,1,'Super','Admin',NULL,NULL,'users/8SmO3ylgsFL08cCh2ZcTz7etRfqMnMII4JZboqJj.jpeg',1,0,1,NULL,0,'2020-04-02 14:46:01','2020-05-15 10:29:12',NULL),(2,2,'Admin','User',NULL,NULL,NULL,1,0,1,NULL,0,'2020-04-02 14:46:01','2020-04-02 14:46:01',NULL),(4,6,NULL,NULL,NULL,NULL,'https://lh3.googleusercontent.com/a-/AOh14Gg6EkjBNRaaDqpAju5whI2jNoiSgtDmKnue4n85',1,0,0,NULL,0,'2020-04-02 21:52:58','2020-04-02 21:52:58',NULL),(5,7,NULL,NULL,NULL,NULL,'https://lh3.googleusercontent.com/a-/AOh14GhVZsAI6Dy8MsH6JwfSVQP2WsqZaHTODk3OfGgVtA',1,0,0,NULL,0,'2020-04-02 23:42:18','2020-04-02 23:42:18',NULL),(6,10,NULL,NULL,NULL,NULL,NULL,1,0,0,2,0,'2020-05-12 20:13:20','2020-05-12 20:13:20',NULL),(7,11,NULL,NULL,NULL,NULL,'profile.jpg',1,1,0,2,0,'2020-05-12 20:15:21','2020-05-12 22:00:49',NULL);
 
 /*Table structure for table `user_devices` */
 
@@ -612,7 +618,27 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`name`,`email`,`password`,`remember_token`,`created_at`,`updated_at`,`deleted_at`) values (1,'Super Admin','superadmin@boilerplate.com','$2y$10$egAKYBpjG9FFhCsJJDe9WO.dfceH3PrjQjaUUXDxkLOffqmR.BE0S','IKAWfVvVOmuoOOAIyEGSHuy2LevzFm3dNoa8hp33xHc8DwqHATrxb9OEPQoE','2020-04-02 14:46:01','2020-04-02 14:46:01',NULL),(2,'Admin','admin@boilerplate.com','$2y$10$y2L0MiJovvqkit5zD4nWme.h3NJ4zmpJLa5Cfst9Txemw8xWrKt1O',NULL,'2020-04-02 14:46:01','2020-04-02 14:46:01',NULL),(5,'Farhad Surani','farhad.surani@hotmail.com','8169e05e2a0debcb15458f2cc1eff0ea','4kUZHXlOJk59QphKZqFFrw88IK8O4T2Wjque9c0rVlTFdAjsmLLPz6L12W6a','2020-04-02 21:52:32','2020-04-02 21:52:32',NULL),(6,'farhad surani','farhad.surani@gmail.com','203827','8rdrjzI4kVFjgsVrcdK4MThKKWhf5buLEOUMM0OtWpc5laXxjdtXuWM9RWk2','2020-04-02 21:52:58','2020-04-02 21:52:58',NULL),(7,'Shawaiz Thayani','shaxthayani@gmail.com','748908','pAbDeafH7yJZdTG1C5kt36q24zrljwv64keOL7HaO92znhspU08xDpGAzXGN','2020-04-02 23:42:18','2020-04-02 23:42:18',NULL),(8,'asdasd','password_confirmation@gmail.com','$2y$10$9Z2O0jBiIX.SX0mhft.jyOQbE.FQ8IaO6YJdnqQPzcBuvOBAvQdzu',NULL,'2020-05-12 19:47:28','2020-05-12 19:47:28',NULL),(9,'jkdakuwd','hjxsjj@jshak.com','$2y$10$xa55IdaECJCCPipCUUPTTexstj3KegjMwxlVjP.bzLDRBmUzEp1pO',NULL,'2020-05-12 20:11:07','2020-05-12 20:11:07',NULL),(10,'fayzee','fayzee@mailinator.com','$2y$10$Y/me0sXnDYHudup1Ba9pSOGRnRVeLmzoiTPE8v.UiS29qvuI8HWiK',NULL,'2020-05-12 20:13:20','2020-05-12 20:13:20',NULL),(11,'gayzee','fayzee@jdakjd.com','$2y$10$cb8FX9E2yxN8x1CW9E5LyeTh/e93E38ZzBuDCPuHY8lkwSaq7BxdG',NULL,'2020-05-12 20:15:21','2020-05-12 22:03:34',NULL);
+insert  into `users`(`id`,`name`,`email`,`password`,`remember_token`,`created_at`,`updated_at`,`deleted_at`) values (1,'Super Admin','superadmin@boilerplate.com','$2y$10$egAKYBpjG9FFhCsJJDe9WO.dfceH3PrjQjaUUXDxkLOffqmR.BE0S','IKAWfVvVOmuoOOAIyEGSHuy2LevzFm3dNoa8hp33xHc8DwqHATrxb9OEPQoE','2020-04-02 14:46:01','2020-05-15 10:29:12',NULL),(2,'Admin','admin@boilerplate.com','$2y$10$y2L0MiJovvqkit5zD4nWme.h3NJ4zmpJLa5Cfst9Txemw8xWrKt1O',NULL,'2020-04-02 14:46:01','2020-04-02 14:46:01',NULL),(5,'Farhad Surani','farhad.surani@hotmail.com','8169e05e2a0debcb15458f2cc1eff0ea','4kUZHXlOJk59QphKZqFFrw88IK8O4T2Wjque9c0rVlTFdAjsmLLPz6L12W6a','2020-04-02 21:52:32','2020-04-02 21:52:32',NULL),(6,'farhad surani','farhad.surani@gmail.com','203827','8rdrjzI4kVFjgsVrcdK4MThKKWhf5buLEOUMM0OtWpc5laXxjdtXuWM9RWk2','2020-04-02 21:52:58','2020-04-02 21:52:58',NULL),(7,'Shawaiz Thayani','shaxthayani@gmail.com','748908','pAbDeafH7yJZdTG1C5kt36q24zrljwv64keOL7HaO92znhspU08xDpGAzXGN','2020-04-02 23:42:18','2020-04-02 23:42:18',NULL),(8,'asdasd','password_confirmation@gmail.com','$2y$10$9Z2O0jBiIX.SX0mhft.jyOQbE.FQ8IaO6YJdnqQPzcBuvOBAvQdzu',NULL,'2020-05-12 19:47:28','2020-05-12 19:47:28',NULL),(9,'jkdakuwd','hjxsjj@jshak.com','$2y$10$xa55IdaECJCCPipCUUPTTexstj3KegjMwxlVjP.bzLDRBmUzEp1pO',NULL,'2020-05-12 20:11:07','2020-05-12 20:11:07',NULL),(10,'fayzee','fayzee@mailinator.com','$2y$10$Y/me0sXnDYHudup1Ba9pSOGRnRVeLmzoiTPE8v.UiS29qvuI8HWiK',NULL,'2020-05-12 20:13:20','2020-05-12 20:13:20',NULL),(11,'gayzee','fayzee@jdakjd.com','$2y$10$cb8FX9E2yxN8x1CW9E5LyeTh/e93E38ZzBuDCPuHY8lkwSaq7BxdG',NULL,'2020-05-12 20:15:21','2020-05-12 22:03:34',NULL);
+
+/*Table structure for table `video` */
+
+DROP TABLE IF EXISTS `video`;
+
+CREATE TABLE `video` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `video` varchar(255) DEFAULT NULL,
+  `chapter_id` int(11) unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `chapter_id` (`chapter_id`),
+  CONSTRAINT `video_ibfk_1` FOREIGN KEY (`chapter_id`) REFERENCES `chapters` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `video` */
+
+insert  into `video`(`id`,`video`,`chapter_id`,`created_at`,`updated_at`,`deleted_at`) values (3,'Chapter/Video/IquHI7KpH0aPUoF0MskhjtvSh6b3XQc0ILYwgIvT.mp4',8,'2020-05-17 19:24:43','2020-05-17 20:02:10',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
