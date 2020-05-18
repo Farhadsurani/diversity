@@ -25,6 +25,7 @@ Route::get('/portfolio', 'Web\PortfolioController@index')->name('portfolio');
 
 Route::get('/chapters-list/{id}', 'Web\CourseController@chaptersList')->name('chapters-list');
 Route::get('/watch-video/{id}', 'Web\CourseController@watchVideo')->name('watch-video');
+Route::get('/course-details/{id}', 'Web\CourseController@courseDetails')->name('course-details');
 
 Route::get('/loginuser', 'Web\LoginUserController@index')->name('loginuser');
 Route::get('/registeruser/{id}', 'HomeController@register')->name('registeruser');

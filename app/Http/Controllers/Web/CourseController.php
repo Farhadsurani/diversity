@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\UpdateContactUsRequest;
 use App\Repositories\Admin\ChapterRepository;
 use App\Repositories\Admin\ContactUsRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\Admin\CourseDetailsRepository;
 use App\Repositories\Admin\CourseRepository;
 use App\Repositories\Admin\VideoRepository;
 use Illuminate\Http\Request;
@@ -211,6 +212,22 @@ class CourseController extends Controller
         return view('web.watch-video')->with([
             'video' => $video,
             'all_chapters' => $all_chapters
+        ]);
+    }
+
+    public function courseDetails($id){
+
+        $course_details = $this->courseRepository->findWhere(['id' => $id]);
+        $chapters = $this->chapterRepository->findWhere(['course_id' => $id]);
+
+        if (empty($course_details)) {
+            Flash::error('Course Details not found');
+            return redirect(route('web.courses'));
+        }
+
+        return view('web.course-details')->with([
+            'course_details' => $course_details,
+            'chapters' => $chapters
         ]);
     }
 }

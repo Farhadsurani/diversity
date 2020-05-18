@@ -108,7 +108,7 @@
                                                     <div class="cours-bx">
                                                         <div class="action-box">
                                                             <img src="{{$row->details->image_url}}" alt="">
-                                                            <a href="#" class="btn">Read More</a>
+                                                            <a href="{{ route('chapters-list', ['id' => $row->id])}}" class="btn">Read More</a>
                                                         </div>
                                                         <div class="info-bx text-center">
                                                             <h5><a href="#">{{$row->name}}</a></h5>
