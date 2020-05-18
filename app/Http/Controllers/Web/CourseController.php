@@ -182,7 +182,24 @@ class CourseController extends Controller
 
     public function watchVideo($id){
 
-//        dd($id);
+        //Take out the Course ID from this chapter
+        $chapters = $this->chapterRepository->findWhere(['id' => $id]);
+        if (empty($chapters)) {
+            Flash::error('Video not found');
+            return redirect(route('web.chapters'));
+        }
+        $courses = $this->courseRepository->findWhere(['id' => $chapters[0]->course_id]);
+        if (empty($courses)) {
+            Flash::error('Video not found');
+            return redirect(route('web.chapters'));
+        }
+
+        //Take out all the Chapters associated with the Course ID
+        $all_chapters = $this->chapterRepository->findWhere(['course_id' => $courses[0]->id]);
+        if (empty($all_chapters)) {
+            Flash::error('Video not found');
+            return redirect(route('web.chapters'));
+        }
 
         $video = $this->videoRepository->findWhere(['chapter_id' => $id]);
         if (empty($video)) {
@@ -190,8 +207,10 @@ class CourseController extends Controller
             return redirect(route('web.chapters'));
         }
 
-        return redirect(route('chapters-list', ['id' => $id]))->with([
-            'video' => $video
+        //Send that Chapter List in the view alongwith the video associated with it
+        return view('web.watch-video')->with([
+            'video' => $video,
+            'all_chapters' => $all_chapters
         ]);
     }
 }
